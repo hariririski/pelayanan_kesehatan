@@ -52,8 +52,8 @@
     <div class="page-content">
       <div class="page-brand-info">
         <div class="brand">
-          <img class="brand-img" width="50px" src="<?php echo site_url(); ?>assets/assets/images/logo.jpg" alt="...">
-          <h2 class="brand-text font-size-30">Sistem Informasi Lokasi Pelayanan Kesehatan Di Kota Banda Aceh Dan Aceh Besar</h2>
+  
+          <h2 class="brand-text font-size-30">Sistem Informasi Geografis <br>Lokasi Pelayanan Kesehatan <br>Di Kota Banda Aceh Dan Aceh Besar</h2>
         </div>
         <!-- <p class="font-size-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.</p> -->
@@ -61,7 +61,7 @@
       <div class="page-register-main">
         <div class="brand visible-xs">
           <img class="brand-img" width="50px" src="<?php echo site_url(); ?>assets/assets/images/logo.jpg" alt="...">
-          <h3 class="brand-text font-size-30">Sistem Informasi Lokasi Pelayanan Kesehatan Di Kota Banda Aceh Dan Aceh Besar</h3>
+          <h3 class="brand-text font-size-30">Sistem Informasi Geografis Lokasi Pelayanan Kesehatan Di Kota Banda Aceh Dan Aceh Besar</h3>
         </div>
         <h3 class="font-size-24">Masuk</h3>
 
@@ -79,7 +79,7 @@
 
         <footer class="page-copyright">
 
-          <p>© 2018 Sistem Informasi Lokasi Pelayanan Kesehatan Di Kota Banda Aceh Dan Aceh Besar.</p>
+          <p>© 2018 Sistem Informasi Geografis Lokasi Pelayanan Kesehatan Di Kota Banda Aceh Dan Aceh Besar.</p>
 
         </footer>
       </div>

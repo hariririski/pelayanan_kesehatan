@@ -11,7 +11,7 @@
       <i class="icon md-more" aria-hidden="true"></i>
     </button>
     <a class="navbar-brand navbar-brand-center" href="<?php echo site_url(); ?>">
-      <img class=" " src="<?php echo site_url(); ?>assets/assets/images/banner.png" width="130%"
+      <img class=" " src="<?php echo site_url(); ?>assets/assets/images/logo_umum.png" width="150%"
       title="BINA MARGA">
       <img class="navbar-brand-logo navbar-brand-logo-special" src="<?php echo site_url(); ?>assets/assets/images/logo.jpg"
       title="BINA MARGA">
@@ -113,20 +113,20 @@
           <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="jalan"||$link =="jalan_rusak"){ echo "active";} ?>">
             <a href="javascript:void(0)" data-dropdown-toggle="false">
               <i class="site-menu-icon md-view-list-alt" aria-hidden="true"></i>
-              <span class="site-menu-title">Lihat Data</span>
+              <span class="site-menu-title">Pelayanan Kesehatan</span>
               <span class="site-menu-arrow"></span>
             </a>
             <ul class="site-menu-sub">
 
               <li class="site-menu-item <?php $link=uri_string(); if($link =="jalan"){ echo "active";} ?>">
                 <a class="animsition-link" href="<?php echo site_url(); ?>jalan">
-                  <span class="site-menu-title">Data Jalan</span>
+                  <span class="site-menu-title">Data Pelayanan Kesehatan</span>
                 </a>
               </li>
 
               <li class="site-menu-item <?php $link=uri_string(); if($link =="jalan_rusak"){ echo "active";} ?>">
                 <a class="animsition-link" href="<?php echo site_url(); ?>jalan_rusak">
-                  <span class="site-menu-title">Data Jalan Rusak</span>
+                  <span class="site-menu-title">Tambah Pelayanan Kesehatan</span>
                 </a>
               </li>
 
@@ -134,54 +134,36 @@
             </ul>
           </li>
           <?php } ?>
+
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="peta"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>home"  data-dropdown-toggle="false">
+              <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+              <span class="site-menu-title">Peta Pelayanan Kesehatan</span>
+              <span class="site-menu-arrow"></span>
+            </a>
+
+          </li>
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="persebaran"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>home"  data-dropdown-toggle="false">
+              <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+              <span class="site-menu-title">Persebaran Pelayanan Kesehatan</span>
+              <span class="site-menu-arrow"></span>
+            </a>
+
+          </li>
           <?php
           $admin=$this->session->userdata('admin');
-           if(empty($admin)==0){
+           if(empty($admin)==1){
           ?>
-          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="tambah_jalan"||$link =="tambah_jalan_rusak"){ echo "active";}?> ">
-            <a href="javascript:void(0)" data-dropdown-toggle="false">
-              <i class="site-menu-icon  md-playlist-plus" aria-hidden="true"></i>
-              <span class="site-menu-title">Input</span>
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="home"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>home"  data-dropdown-toggle="false">
+              <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+              <span class="site-menu-title">Data Pelayanan Kesehatan</span>
               <span class="site-menu-arrow"></span>
             </a>
-            <ul class="site-menu-sub ">
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="tambah_jalan"){ echo "active";}?>">
-                <a class="animsition-link" href="<?php echo site_url(); ?>tambah_jalan">
-                  <span class="site-menu-title">Input Jalan</span>
-                </a>
-              </li>
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="tambah_jalan_rusak"){ echo "active";}?>">
-                <a class="animsition-link" href="<?php echo site_url(); ?>tambah_jalan_rusak">
-                  <span class="site-menu-title">Input Jalan Rusak</span>
-                </a>
-              </li>
-            </ul>
+
           </li>
           <?php } ?>
-
-
-          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="pengaduan"||$link =="tambah_pengaduan"){ echo "active";}?> ">
-            <a href="javascript:void(0)" data-dropdown-toggle="false">
-              <i class="site-menu-icon md-accounts-list-alt" aria-hidden="true"></i>
-              <span class="site-menu-title">Pegaduan Masyarakat</span>
-              <span class="site-menu-arrow"></span>
-            </a>
-            <ul class="site-menu-sub">
-
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="pengaduan"){ echo "active";}?>">
-                <a class="animsition-link" href="<?php echo site_url(); ?>pengaduan">
-                  <span class="site-menu-title">Lihat Pengaduan</span>
-                </a>
-              </li>
-
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="tambah_pengaduan"){ echo "active";}?>">
-                <a class="animsition-link" href="<?php echo site_url(); ?>tambah_pengaduan">
-                  <span class="site-menu-title">Tambah Pengaduan</span>
-                </a>
-              </li>
-
-            </ul>
-          </li>
           <?php
           $admin=$this->session->userdata('admin');
            if(empty($admin)==0){
@@ -209,22 +191,31 @@
                   <span class="site-menu-title">Kecamatan</span>
                 </a>
               </li>
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="kecamatan"){ echo "active";} ?>">
+                <a class="animsition-link" href="<?php echo site_url(); ?>kecamatan">
+                  <span class="site-menu-title">Desa</span>
+                </a>
+              </li>
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="kecamatan"){ echo "active";} ?>">
+                <a class="animsition-link" href="<?php echo site_url(); ?>kecamatan">
+                  <span class="site-menu-title">Jenis Pelayanan Kesehatan</span>
+                </a>
+              </li>
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="kecamatan"){ echo "active";} ?>">
+                <a class="animsition-link" href="<?php echo site_url(); ?>kecamatan">
+                  <span class="site-menu-title">layer</span>
+                </a>
+              </li>
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="kecamatan"){ echo "active";} ?>">
+                <a class="animsition-link" href="<?php echo site_url(); ?>kecamatan">
+                  <span class="site-menu-title">Poli</span>
+                </a>
+              </li>
             </ul>
           </li>
 
         <?php } ?>
-        <?php
-        $admin=$this->session->userdata('admin');
-         if(empty($admin)==1){
-        ?>
-        <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="help"){ echo "active";} ?>">
-          <a href="<?php echo site_url(); ?>help" data-dropdown-toggle="false">
-            <i class="site-menu-icon  md-pin-help" aria-hidden="true"></i>
-            <span class="site-menu-title">Help</span>
-            <span class="site-menu-arrow"></span>
-          </a>
-        </li>
-        <?php } ?>
+
         </ul>
       </div>
     </div>
