@@ -8,7 +8,7 @@
     <meta name="keywords" content="Bootstrap 3, Template, Theme, Responsive, Corporate, Business">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Peta</title>
+    <title>Acme | Home</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo site_url(); ?>assets/maps/css/bootstrap.min.css" rel="stylesheet">
@@ -1697,7 +1697,6 @@
 
 
    var map;
-   
 
 	function initialize() {
 
@@ -1758,72 +1757,6 @@
 
   };
 
-  
-  
-  function initialize2(a) {
-
-  
-    var locations = [
-      <?php
-         $i=0;
-         foreach($lihat as $data_jalan_rusak){
-       ?>
-
-                  ['<?php echo $data_jalan_rusak->kode_jalan_rusak ?>', <?php echo $data_jalan_rusak->lat ?>,<?php echo $data_jalan_rusak->lon ?>,'<?php echo site_url(); ?>assets/maps/cluster/icon/<?php if($data_jalan_rusak->kondisi==1){echo"a.jpg";}else if($data_jalan_rusak->kondisi==2){echo"a.jpg";}else if($data_jalan_rusak->kondisi==3){echo"a.jpg";} ?>'],
-      <?php }?>
-
-
-      ];
-
-	var point
-	var lokasi
-    //Parameter Google maps
-    var options = {
-      zoom: 8, //level zoom
-	  //posisi tengah peta
-      center: new google.maps.LatLng(4.2952462,96.9974882),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-	 // Buat peta di
-     map = new google.maps.Map(document.getElementById('peta'), options);
-	 // Tambahkan Marker
-
-	  var infowindow = new google.maps.InfoWindow();
-    var markers = [];
-
-     /* kode untuk menampilkan banyak marker */
-    for (var i = 0; i < locations.length; i++) {
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map,
-		 icon: locations[i][3]
-      });
-
-
-    		google.maps.event.addListener(marker, 'click', (function(marker, i) {
-			return function() {
-				var id= locations[i][0];
-
-				$.ajax({
-					url : "<?php echo site_url(); ?>popup",
-					data : "id=" +id+"&&l="+lokasi,
-					success : function(data) {
-							infowindow.setContent(data);
-							infowindow.open(map, marker);
-					}
-				});
-			}
-		})(marker, i));
-    markers.push(marker);
-		if(a==false){
-		 marker.setVisible(false);
-		}
-	}
-     var markerCluster = new MarkerClusterer(map, markers);
-  
-  };
-
 function toggleLayers(i)
 {
   if(i==1){
@@ -1835,19 +1768,15 @@ function toggleLayers(i)
               google.maps.event.addListenerOnce(layers[jalan], 'status_changed', function () {
                 console.log('KML status is', layers[jalan].getStatus());
               });
-			  initialize2().setMap(map);
           }else{
             layers[jalan].setMap(null);
-			initialize2().setMap(null);
           }
       }
   }else{
     if(layers[i].getMap()==null) {
         layers[i].setMap(map);
-		initialize2(true);
     }else{
       layers[i].setMap(null);
-	  initialize2(false);
     }
   }
 

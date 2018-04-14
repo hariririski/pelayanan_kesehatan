@@ -8,21 +8,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->helper('url');
   			 $this->load->library('session');
   			 $this->load->database();
-         $this->load->model('M_Jalan_rusak');
-         $this->load->model('M_Jalan');
+         $this->load->model('M_Pelayanan_kesehatan');
+
 
   	  }
 
 
       public function index(){
-        $data['jalan'] = $this->M_Jalan->lihat_jalan();
-        $data['lihat'] = $this->M_Jalan_rusak->lihat_jalan_rusak_aktif();
-       	$this->load->view('maps/peta_jalan_rusak',$data);
+      //  $data['jalan'] = $this->M_Pelayanan_kesehatan->lihat_jalan();
+       	$this->load->view('maps/peta_jalan_rusak');
       }
 
       public function popup(){
-        $data['lihat'] = $this->M_Jalan_rusak->jalan_rusak($_GET['id']);
-      	$this->load->view('maps/popup',$data);
+      //  $data['lihat'] = $this->M_Pelayanan_kesehatan->jalan_rusak($_GET['id']);
+      	$this->load->view('maps/popup');
       }
 
 

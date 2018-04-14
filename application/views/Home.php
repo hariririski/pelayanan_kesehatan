@@ -73,9 +73,9 @@
                   </div>
                     <span class=" pull-right grey-700 font-size-30">
                       <?php
-                         foreach($ringan as $ringan){
-                           echo $ringan->jumlah_ringan;
-                         }
+                         // foreach($ringan as $ringan){
+                         //   echo $ringan->jumlah_ringan;
+                         // }
                        ?>
                     </span>
                 </div>
@@ -99,9 +99,9 @@
                   </div>
                     <span class=" pull-right grey-700 font-size-30">
                       <?php
-                         foreach($berat as $berat){
-                           echo $berat->jumlah_berat;
-                         }
+                         // foreach($berat as $berat){
+                         //   echo $berat->jumlah_berat;
+                         // }
                        ?>
                     </span>
                 </div>
@@ -126,9 +126,9 @@
                   </div>
                   <span class=" pull-right grey-700 font-size-30">
                     <?php
-                       foreach($belum_tembus as $belum_tembus){
-                         echo $belum_tembus->jumlah_belum_tembus;
-                       }
+                       // foreach($belum_tembus as $belum_tembus){
+                       //   echo $belum_tembus->jumlah_belum_tembus;
+                       // }
                      ?>
                   </span>
                 </div>
