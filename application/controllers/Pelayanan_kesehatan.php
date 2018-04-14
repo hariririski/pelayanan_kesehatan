@@ -165,7 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        $data['kecamatan'] = $this->M_Kecamatan->lihat_kecamatan();
        $data['poli'] = $this->M_Poli->poli($id);
        $data['layanan_kesehatan'] = $this->M_Pelayanan_kesehatan->layanan_kesehatan($id);
-       $this->load->view('detail_pelayanan_kesehatan_umum',$data);
+       $this->load->view('detail_pelayanan_kesehatan_',$data);
      }
      public function edit_jalan()
     {
