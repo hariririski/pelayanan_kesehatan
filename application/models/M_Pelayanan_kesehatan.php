@@ -12,7 +12,7 @@ class M_Pelayanan_kesehatan extends CI_Model{
     }
     function layanan_kesehatan($id)
     {
-        $query=$this->db->query("SELECT * from pelkes_lakes left join pelayanan_kesehatan on pelayanan_kesehatan.id_pelayanan_kesehatan=pelkes_lakes.id_pelayanan_kesehatan left join layanan_kesehatan on layanan_kesehatan.id_layanan=pelkes_lakes.id_layanan where pelkes_lakes.id_pelayanan_kesehatan='$id'");
+        $query=$this->db->query("SELECT * from layanan_kesehatan where id_pelayanan_kesehatan='$id'");
         return $query->result();
     }
 
@@ -38,6 +38,18 @@ class M_Pelayanan_kesehatan extends CI_Model{
       );
 
       $cek=$this->db->insert('pelayanan_kesehatan',$jalan);
+      return $cek;
+    }
+    function tambah_layanan_kesehatan($id)
+    {
+
+      $jalan = array(
+          'nama_layanan'     =>$this->input->post('nama_layanan_kesehatan'),
+          'id_pelayanan_kesehatan'     =>$id,
+
+      );
+
+      $cek=$this->db->insert('layanan_kesehatan',$jalan);
       return $cek;
     }
 

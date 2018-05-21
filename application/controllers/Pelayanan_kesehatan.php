@@ -24,6 +24,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $data['lihat'] = $this->M_Pelayanan_kesehatan->lihat_pelayanan_kesehatan();
        		$this->load->view('lihat_pelayanan_kesehatan',$data);
        	}
+         public function layanan_kesehatan()
+       	{
+          $id=$_GET ['id'];
+          $cek= $this->M_Pelayanan_kesehatan->tambah_layanan_kesehatan($id);
+          if($cek){
+            $this->tambah_berhasil();
+            redirect("pelayanan_kesehatan/detail_pelayanan_kesehatan?id=$id");
+          }else{
+            $this->tambah_gagal();
+            redirect("pelayanan_kesehatan/detail_pelayanan_kesehatan?id=$id");
+          }
+       	}
          public function umum()
        	{
           $data['lihat'] = $this->M_Pelayanan_kesehatan->lihat_pelayanan_kesehatan();
@@ -154,6 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        $data['kabupaten'] = $this->M_Kabupaten->lihat_kabupaten();
        $data['kecamatan'] = $this->M_Kecamatan->lihat_kecamatan();
        $data['poli'] = $this->M_Poli->poli($id);
+       $data['poli2'] = $this->M_Poli->lihat_poli();
        $data['layanan_kesehatan'] = $this->M_Pelayanan_kesehatan->layanan_kesehatan($id);
        $this->load->view('detail_pelayanan_kesehatan',$data);
      }
@@ -164,6 +177,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        $data['kabupaten'] = $this->M_Kabupaten->lihat_kabupaten();
        $data['kecamatan'] = $this->M_Kecamatan->lihat_kecamatan();
        $data['poli'] = $this->M_Poli->poli($id);
+
        $data['layanan_kesehatan'] = $this->M_Pelayanan_kesehatan->layanan_kesehatan($id);
        $this->load->view('detail_pelayanan_kesehatan_',$data);
      }

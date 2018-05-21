@@ -74,8 +74,6 @@
                 <th>Kecamatan</th>
                 <th>Desa</th>
                 <th>Detail</th>
-                <th>Tambah Layanan Kesehatan</th>
-                <th>Tambah Poli</th>
                 <th>Hapus</th>
               </tr>
             </thead>
@@ -88,8 +86,6 @@
                 <th>Kecamatan</th>
                 <th>Desa</th>
                 <th>Detail</th>
-                <th>Tambah Layanan Kesehatan</th>
-                <th>Tambah Poli</th>
                 <th>Hapus</th>
               </tr>
             </tfoot>
@@ -112,16 +108,7 @@
                   <button type='button' class='btn btn-success'>Detail</button></a>
                     </td>";
                   ?>
-                  <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."pelayanan_kesehatan/detail_pelayanan_kesehatan?id=".$pelayanan_kesehatan->id_pelayanan_kesehatan."'>
-                  <img src='".site_url()."assets/image/tambah.ico' class='btn ' width='60%'' type='button' </a>
-                  </td>";
-                  ?>
-                  <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."pelayanan_kesehatan/detail_pelayanan_kesehatan?id=".$pelayanan_kesehatan->id_pelayanan_kesehatan."'>
-                  <img src='".site_url()."assets/image/tambah.ico' class='btn ' width='60%'' type='button' </a>
-                  </td>";
-                  ?>
+                  
                   <?php
                   echo"<td class='center' width='10%'><a href='". site_url()."pelayanan_kesehatan/detail_pelayanan_kesehatan?id=".$pelayanan_kesehatan->id_pelayanan_kesehatan."'>
                   <img src='".site_url()."assets/image/hapus.ico' class='btn ' width='60%'' type='button' </a>

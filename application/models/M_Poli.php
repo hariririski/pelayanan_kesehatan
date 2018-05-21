@@ -21,6 +21,16 @@ class M_Poli extends CI_Model{
       $cek=$this->db->insert('poli',$data);
       return $cek;
     }
+    function tambah_pelkes($id)
+    {
+
+      $data = array(
+          'id_poli'=>$this->input->post('id_poli'),
+          'id_pelayanan_kesehatan'=>$id
+      );
+      $cek=$this->db->insert('pelkes_poli',$data);
+      return $cek;
+    }
 
     function edit_kabupaten($id)
     {
