@@ -1681,36 +1681,37 @@
    MarkerClusterer.IMAGE_SIZES = [53, 56, 66, 78, 90];
 
    var layers=[];
-   layers[0] = new  google.maps.KmlLayer('https://github.com/hariririski/jalan_rusak/raw/master/batas_kabupaten3.kmz',
-   {preserveViewport: true});
 
-   <?php
-      $jumlah=1;
-      foreach($jalan as $data_jalan){
-        if($data_jalan->peta!=null){
-    ?>
-  layers[<?php echo $jumlah;?>] = new  google.maps.KmlLayer('<?php echo $data_jalan->peta;?>',{preserveViewport: true});
-   <?php
-   $jumlah++;}
-    }
-      ?>
+
+
+
+    <?php
+         $jumlah=1;
+         foreach($layer as $data_layer){
+           if($data_layer->url!=null){
+       ?>
+     layers[<?php echo $data_layer->id_layer;?>] = new  google.maps.KmlLayer('<?php echo $data_layer->url;?>',{preserveViewport: true});
+      <?php
+      $jumlah++;}
+       }
+         ?>
 
 
    var map;
-   
+
 
 	function initialize() {
 
     var locations = [
-      <?php
-         $i=0;
-         foreach($lihat as $data_jalan_rusak){
-       ?>
 
-                  ['<?php echo $data_jalan_rusak->kode_jalan_rusak ?>', <?php echo $data_jalan_rusak->lat ?>,<?php echo $data_jalan_rusak->lon ?>,'<?php echo site_url(); ?>assets/maps/cluster/icon/<?php if($data_jalan_rusak->kondisi==1){echo"ringan.png";}else if($data_jalan_rusak->kondisi==2){echo"berat.png";}else if($data_jalan_rusak->kondisi==3){echo"blm_tembus.png";} ?>'],
-      <?php }?>
+// codeing
+<?php
+   $i=0;
+   foreach($lihat as $pelkes){
+ ?>
 
-
+            ['<?php echo $pelkes->id_pelayanan_kesehatan ?>', <?php echo $pelkes->lat ?>,<?php echo $pelkes->lon ?>,'<?php echo site_url(); ?>assets/image/<?php echo $pelkes->icon ?>','<?php echo $pelkes->nama_jenis_pelayanan?>'],
+<?php }?>
       ];
 	var point
 	var lokasi
@@ -1758,19 +1759,21 @@
 
   };
 
-  
-  
+
+
   function initialize2(a) {
 
-  
+
     var locations = [
+      //coding
       <?php
          $i=0;
-         foreach($lihat as $data_jalan_rusak){
+         foreach($lihat as $pelkes){
        ?>
 
-                  ['<?php echo $data_jalan_rusak->kode_jalan_rusak ?>', <?php echo $data_jalan_rusak->lat ?>,<?php echo $data_jalan_rusak->lon ?>,'<?php echo site_url(); ?>assets/maps/cluster/icon/<?php if($data_jalan_rusak->kondisi==1){echo"a.jpg";}else if($data_jalan_rusak->kondisi==2){echo"a.jpg";}else if($data_jalan_rusak->kondisi==3){echo"a.jpg";} ?>'],
+                  ['<?php echo $pelkes->id_pelayanan_kesehatan ?>', <?php echo $pelkes->lat ?>,<?php echo $pelkes->lon ?>,'<?php echo site_url(); ?>assets/image/<?php echo $pelkes->icon ?>','<?php echo $pelkes->nama_jenis_pelayanan?>'],
       <?php }?>
+
 
 
       ];
@@ -1821,50 +1824,68 @@
 		}
 	}
      var markerCluster = new MarkerClusterer(map, markers);
-  
+
   };
 
 function toggleLayers(i)
 {
-  if(i==1){
-      var jumlah=<?php echo$jumlah-1?>;
-      jumlah=26;
-      for(var jalan=1 ; jalan<=jumlah;jalan++){
-          if(layers[jalan].getMap()==null) {
-              layers[jalan].setMap(map);
-              google.maps.event.addListenerOnce(layers[jalan], 'status_changed', function () {
-                console.log('KML status is', layers[jalan].getStatus());
-              });
-			  initialize2().setMap(map);
-          }else{
-            layers[jalan].setMap(null);
-			initialize2().setMap(null);
-          }
-      }
-  }else{
-    if(layers[i].getMap()==null) {
-        layers[i].setMap(map);
-		initialize2(true);
-    }else{
-      layers[i].setMap(null);
-	  initialize2(false);
+
+  if(layers[i].getMap()==null) {
+       layers[i].setMap(map);
+
     }
-  }
+    else {
+       layers[i].setMap(null);
+    }
+    document.getElementById('status').innerHTML += "toggleLayers("+i+") [setMap("+layers[i].getMap()+"] returns status: "+layers[i].getStatus()+"<br>";
+
+
+
+  // if(i==1){
+  //     var jumlah=<?php //echo$jumlah-1?>;
+  //     jumlah=26;
+  //     for(var jalan=1 ; jalan<=jumlah;jalan++){
+  //         if(layers[jalan].getMap()==null) {
+  //             layers[jalan].setMap(map);
+  //             google.maps.event.addListenerOnce(layers[jalan], 'status_changed', function () {
+  //               console.log('KML status is', layers[jalan].getStatus());
+  //             });
+	// 		  initialize2().setMap(map);
+  //         }else{
+  //           layers[jalan].setMap(null);
+	// 		initialize2().setMap(null);
+  //         }
+  //     }
+  // }else{
+  //   if(layers[i].getMap()==null) {
+  //       layers[i].setMap(map);
+	// 	initialize2(true);
+  //   }else{
+  //     layers[i].setMap(null);
+	//   initialize2(false);
+  //   }
+  //}
 
   //document.getElementById('status').innerHTML += "toggleLayers("+i+") [setMap("+layers[i].getMap()+"] returns status: "+layers[i].getStatus()+"<br>";
 }
+function pelkes(checkbox)
+{
 
+  if (checkbox.checked)
+    {
+        alert("a");
+    }
+    // if(checkbox.ch){
+    // initialize2(true);
+    // }else{
+    //   initialize2(false);
+    // }
 
+}
 	</script>
   </head>
 
   <body onload="initialize()">
-    <!--header start-->
-
-
-    <!--breadcrumbs start-->
-
-    <!--container start-->
     <div class="white-bg">
 
         <!-- career -->
@@ -1884,42 +1905,49 @@ function toggleLayers(i)
             </div>
             <div class="col-md-2">
                 <div class="candidate wow fadeInRight">
+                  Pelayanan Kesehatan
+        					<table border='0'>
+                    <?php
+
+                         //foreach($layer as $data_layer){
+                           //if($data_layer->url!=null){
+                       ?>
+                       <tr>
+             					<td width='85%'> <input type="checkbox" name="checkAddress" onclick="pelkes(this)" />Rumah Sakit</td>
+             					</tr>
+                       <tr>
+             					<td width='85%'> <input type="checkbox" id="layer_0" onclick="pelkes(1);"/>Rumah Sakit2</td>
+             					</tr>
+
+                      <?php
+                    //  }
+                       //}
+                         ?>
+
+
+
+        					</table >
           Layer
 					<table border='0'>
-					<tr>
-					<td width='85%'> <input type="checkbox" id="layer_0" onclick="toggleLayers(1);"/> Jalan Provinsi</td>
-					</tr>
-          <tr>
-					<td width='85%'> <input type="checkbox" id="layer_02" onclick="toggleLayers(0);"/> Batas Kabupaten</td>
-					</tr>
+            <?php
+
+                 foreach($layer as $data_layer){
+                   if($data_layer->url!=null){
+               ?>
+               <tr>
+     					<td width='85%'> <input type="checkbox" id="layer_0" onclick="toggleLayers(<?php echo $data_layer->id_layer;?>);"/>     <?php echo $data_layer->nama_layer;?></td>
+     					</tr>
+
+              <?php
+              }
+               }
+                 ?>
+
+
 
 					</table >
 
-          <br>
-          <br>
-          Keterangan
-          <table border='0'>
-					<tr>
-					<td width='15%'><img src="<?php echo site_url(); ?>assets/maps/cluster/icon/berat.png" width="80%"> </td>
-					<td width='70%%'> Jalan Rusak Berat</td>
-					</tr>
-          <tr>
-					<td width='15%'><img src="<?php echo site_url(); ?>assets/maps/cluster/icon/ringan.png" width="80%"> </td>
-					<td width='70%%'> Jalan Rusak Ringan</td>
-					</tr>
-          <tr>
-					<td width='15%'><img src="<?php echo site_url(); ?>assets/maps/cluster/icon/blm_tembus.png" width="80%"> </td>
-					<td width='70%%'> Jalan Belum Tembus</td>
-					</tr>
-					<!-- <tr>
-					<td width='85%'><input type="checkbox" id="layer_01" onclick="toggleLayers(1);"/> Arah Aliran Air Tanah</td>
-					</tr>
-					<tr>
-					<td width='85%'><input type="checkbox" id="layer_01" onclick="toggleLayers(2);"/> Peta Cekungan Air Tanah</td>
-					</tr> -->
-					</table >
-
-                </div>
+          </div>
                 <hr>
 
 

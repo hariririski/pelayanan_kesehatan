@@ -9,19 +9,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->library('session');
   			 $this->load->database();
          $this->load->model('M_Pelayanan_kesehatan');
+         $this->load->model('M_Layer');
+         $this->load->model('M_Jenis_pelayanan');
+         $this->load->model('M_Kabupaten');
 
 
   	  }
 
 
       public function index(){
-      //  $data['jalan'] = $this->M_Pelayanan_kesehatan->lihat_jalan();
-       	$this->load->view('maps/peta_jalan_rusak');
+        $data['lihat'] = $this->M_Pelayanan_kesehatan->lihat_pelayanan_kesehatan();
+        $data['layer'] = $this->M_Layer->lihat_layer();
+        $data['jenis'] = $this->M_Jenis_pelayanan->lihat_jenis_pelayanan();
+        $data['kabupaten'] = $this->M_Kabupaten->Lihat_kabupaten();
+       	$this->load->view('maps/peta',$data);
       }
 
       public function popup(){
-      //  $data['lihat'] = $this->M_Pelayanan_kesehatan->jalan_rusak($_GET['id']);
-      	$this->load->view('maps/popup');
+        $id=$_GET['id'];
+        $data['lihat'] = $this->M_Pelayanan_kesehatan->pelayanan_kesehatan($id);
+      	$this->load->view('maps/popup',$data);
       }
 
 

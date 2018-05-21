@@ -55,74 +55,7 @@
             <div class="widget-content">
               <div class="padding-1 padding-top-1">
 
-                <!-- <iframe  src="<?php echo site_url(); ?>/peta" width="100%" height="750px" scrolling="no" frameborder="0"></iframe> -->
-                <iframe  src="<?php echo site_url(); ?>/home/slider" width="100%" height="750px" scrolling="no" frameborder="0"></iframe>
-
-              </div>
-            </div>
-          </div>
-          <!-- End Widget Linearea One -->
-        </div>
-        <div class="col-lg-4 col-sm-12">
-          <!-- Widget Linearea One-->
-          <div class="widget widget-shadow" id="widgetLineareaOne">
-            <div class="widget-content">
-              <div class="padding-20 padding-top-10">
-                <div class="clearfix">
-                  <div class="grey-800 pull-center font-size-30 padding-vertical-10">
-                    <center>Total Rumah Sakit</center>
-                  </div>
-                    <span class=" pull-right grey-700 font-size-30">
-                      <img  width="50%"src="<?php echo site_url(); ?>assets/image/rs.png">
-                      75
-                    </span>
-                </div>
-                <div class="margin-bottom-20 grey-500">
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <!-- End Widget Linearea One -->
-        </div>
-        <div class="col-lg-4 col-sm-12">
-          <!-- Widget Linearea One-->
-          <div class="widget widget-shadow" id="widgetLineareaOne">
-            <div class="widget-content">
-              <div class="padding-20 padding-top-10">
-                <div class="clearfix">
-                <div class="grey-800 pull-center font-size-30 padding-vertical-10">
-                  <center>Total Klinik</center>
-                  </div>
-                    <span class=" pull-right grey-700 font-size-30">
-                        <img  width="40%"src="<?php echo site_url(); ?>assets/image/klinik.png">
-                        55
-                    </span>
-                </div>
-
-
-              </div>
-            </div>
-          </div>
-          <!-- End Widget Linearea One -->
-        </div>
-
-        <div class="col-lg-4 col-sm-12">
-          <!-- Widget Linearea One-->
-          <div class="widget widget-shadow" id="widgetLineareaOne">
-            <div class="widget-content">
-              <div class="padding-20 padding-top-10">
-                <div class="clearfix">
-                  <div class="grey-800 pull-center font-size-30 padding-vertical-10">
-                    <center>Total Apotek</center>
-                    </div>
-                  <span class=" pull-right grey-700 font-size-30">
-                    <img  width="40%"src="<?php echo site_url(); ?>assets/image/apotek.png">
-                    55
-                  </span>
-                </div>
-
+                <iframe  src="<?php echo site_url(); ?>/peta" width="100%" height="750px" scrolling="no" frameborder="0"></iframe>
 
               </div>
             </div>
