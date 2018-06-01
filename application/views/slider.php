@@ -22,7 +22,7 @@ html, body {
 }
 .slide:nth-child(2) .slide__bg {
   left: -50%;
-    background-image: url("<?php echo site_url(); ?>assets/image/1.png");
+    background-image: url("<?php echo site_url(); ?>assets/image/2.png");
 }
 .slide__text {
   position: absolute;
