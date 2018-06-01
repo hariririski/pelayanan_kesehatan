@@ -7,11 +7,12 @@ class M_Jenis_pelayanan extends CI_Model{
     }
 
 
-    function tambah_jenis_pelayanan()
+    function tambah_jenis_pelayanan($icon)
     {
       $nama_jenis_pelayanan = $this->input->post('nama_jenis_pelayanan');
       $data = array(
-          'nama_jenis_pelayanan'=>$nama_jenis_pelayanan
+          'nama_jenis_pelayanan'=>$nama_jenis_pelayanan,
+          'icon'=>$icon
       );
       $cek=$this->db->insert('jenis_pelayanan',$data);
       return $cek;

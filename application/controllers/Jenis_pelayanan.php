@@ -21,16 +21,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        		$this->load->view('lihat_jenis_pelayanan',$data);
        	}
 
-        public function proses_tambah_jenis_pelayanan(){
-          $cek= $this->M_Jenis_pelayanan->tambah_jenis_pelayanan();
-          if($cek){
-            $this->tambah_berhasil();
-            redirect('jenis_pelayanan');
-          }else{
-            $this->tambah_gagal();
-            redirect('jenis_pelayanan');
-          }
-        }
+        // public function proses_tambah_jenis_pelayanan(){
+        //   $cek= $this->M_Jenis_pelayanan->tambah_jenis_pelayanan();
+        //   if($cek){
+        //     $this->tambah_berhasil();
+        //     redirect('jenis_pelayanan');
+        //   }else{
+        //     $this->tambah_gagal();
+        //     redirect('jenis_pelayanan');
+        //   }
+        // }
+
+        function proses_tambah_jenis_pelayanan(){
+         $config['upload_path']   = './uploads/';
+         $config['allowed_types'] = 'jpg|png';
+         $config['max_size']      = 99999999;
+         $new_name=$this->random_name(10);
+         $config['file_name']=$new_name;
+         $this->load->library('upload', $config);
+         $filename = $_FILES['icon']['name'];
+         $ext = pathinfo($filename, PATHINFO_EXTENSION);
+         $new_name=$new_name.".".$ext;
+         if ( ! $this->upload->do_upload('icon')) {
+                 $this->upload();
+                 $this->tambah_gagal();
+              //  redirect('jenis_pelayanan');
+         }else {
+               $cek=$this->M_Jenis_pelayanan->tambah_jenis_pelayanan($new_name);
+               if($cek){
+                 $this->tambah_berhasil();
+                 redirect('jenis_pelayanan');
+               }else{
+                 $this->tambah_gagal();
+              redirect('jenis_pelayanan');
+               }
+         }
+       }
+       function random_name($length) {
+ 					 $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+ 					 $password = substr( str_shuffle( $chars ), 0, $length );
+ 					 return $password;
+ 				 }
 
         public function proses_hapus_kabupaten(){
           	$id=$_GET ['id'];

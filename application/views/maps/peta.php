@@ -3,72 +3,174 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Google filteri</title>
 
 
 
-    <style>
-    #map-canvas {
-  	margin: 0;
-  	padding: 0;
-  	height: 400px;
-  	max-width: none;
+    <link rel="apple-touch-icon" href="<?php echo site_url(); ?>assets/assets/images/apple-touch-icon.png">
+      <link rel="shortcut icon" href="<?php echo site_url(); ?>assets/assets/images/favicon.ico">
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap.min.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/css/bootstrap-extend.min.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/assets/css/site.min.css">
+      <!-- Plugins -->
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/animsition/animsition.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/asscrollable/asScrollable.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/switchery/switchery.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/intro-js/introjs.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/slidepanel/slidePanel.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/flag-icon-css/flag-icon.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/waves/waves.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/ladda-bootstrap/ladda.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/assets/examples/css/uikit/buttons.css">
+      <!-- Fonts -->
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/material-design/material-design.min.css">
+      <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/fonts/brand-icons/brand-icons.min.css">
+      <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+      <!--[if lt IE 9]>
+        <script src="<?php echo site_url(); ?>assets/global/vendor/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->
+      <!--[if lt IE 10]>
+        <script src="<?php echo site_url(); ?>assets/global/vendor/media-match/media.match.min.js"></script>
+        <script src="<?php echo site_url(); ?>assets/global/vendor/respond/respond.min.js"></script>
+        <![endif]-->
+      <!-- Scripts -->
+      <script src="<?php echo site_url(); ?>assets/global/vendor/modernizr/modernizr.js"></script>
+      <script src="<?php echo site_url(); ?>assets/global/vendor/breakpoints/breakpoints.js"></script>
+      <script>
+      Breakpoints();
+      </script>
+
+      <style>
+      #map-canvas {
+      margin: 0;
+      padding: 0;
+      height: 500px;
+      max-width: none;
+    }
+    body {
+      padding-top: 0px;
   }
 
-    </style>
-
-
+      </style>
 </head>
 
 <body>
 
-  <div id="map-canvas">
+       <div class="panel">
 
-</div>
+         <div class="panel-body container-fluid">
+           <div class="row row-lg">
+             <div class="col-lg-12">
 
-<select id="type" onchange="filterMarkers(this.value);">
-  <option value="">Semua</option>
-  <?php
-       foreach($kabupaten as $kabupaten){
+               <div class="example-wrap">
+                 <div class="row">
+                   <div class="col-xs-12 col-sm-10 col-lg-2">
 
-     ?>
-     <option value="<?php echo $kabupaten->nama_kabupaten?>"><?php echo $kabupaten->nama_kabupaten?></option>
-  <?php } ?>
+                       <div id="map-canvas"></div>
 
-</select>
-<div id="buttons">
-
-  <?php
-
-       foreach($jenis as $jenis){
-
-     ?>
-     <input type="checkbox" checked name="filter" value="<?php echo $jenis->nama_jenis_pelayanan?>" class='chk-btn'  onclick="selectAllChecked();">
-     <label for='shower'><?php echo $jenis->nama_jenis_pelayanan?></label>
-     <?php
-   }
-        ?>
-
-</div>
-Layer
-<table border='0'>
-  <?php
-
-       foreach($layer as $data_layer){
-         if($data_layer->url!=null){
-     ?>
-     <tr>
-    <td width='85%'> <input type="checkbox" id="layer_0" onclick="toggleLayers(<?php echo $data_layer->id_layer;?>);"/>     <?php echo $data_layer->nama_layer;?></td>
-    </tr>
-
-    <?php
-    }
-     }
-       ?>
+                   </div>
+                   <div class="col-xs-12 col-sm-2 col-lg-2">
 
 
+                     <div class="example">
 
-</table >
+                     <select id="type"  class="form-control" onchange="filterMarkers(this.value);">
+                       <option value="">Semua</option>
+                       <?php
+                            foreach($kabupaten as $kabupaten){
+
+                          ?>
+                          <option value="<?php echo $kabupaten->nama_kabupaten?>"><?php echo $kabupaten->nama_kabupaten?></option>
+                       <?php } ?>
+
+                     </select>
+                    </div>
+                     <div id="buttons">
+
+                       <?php
+
+                            foreach($jenis as $jenis){
+
+                          ?>
+                          <!-- <input type="checkbox" checked name="filter" value="<?php //echo $jenis->nama_jenis_pelayanan?>" class='chk-btn'  onclick="selectAllChecked();">
+                          <label for='shower'><?php //echo $jenis->nama_jenis_pelayanan?></label> -->
+                          <div class="form-group form-material">
+                            <div class="checkbox-custom checkbox-default">
+                              <input type="checkbox"   name="filter" value="<?php echo $jenis->nama_jenis_pelayanan?>" checked="" autocomplete="off" onclick="selectAllChecked();">
+                              <label for="inputBasicRemember"><?php echo $jenis->nama_jenis_pelayanan?></label>
+                            </div>
+                          </div>
+                          <?php
+                        }
+                             ?>
+
+                     </div>
+                     Layer
+                     <table border='0'>
+                       <?php
+
+                            foreach($layer as $data_layer){
+                              if($data_layer->url!=null){
+                          ?>
+                          <tr>
+                         <td width='85%'>
+                           <div class="form-group form-material">
+                             <div class="checkbox-custom checkbox-default">
+                               <input type="checkbox"   id="layer_0" onclick="toggleLayers(<?php echo $data_layer->id_layer;?>);"autocomplete="off" onclick="selectAllChecked();">
+                               <label for="inputBasicRemember"><?php echo $data_layer->nama_layer;?></label>
+                             </div>
+                           </div>
+
+                         </tr>
+
+                         <?php
+                         }
+                          }
+                            ?>
+
+
+
+                     </table >
+                   </div>
+
+                 </div>
+               </div>
+               <!-- End Example Default Button -->
+             </div>
+           </div>
+
+         </div>
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmUfKutqGZ-VgbD4fwjOFd1EGxLXbxcpQ&sCensor=false"></script>
 
@@ -106,7 +208,7 @@ $data;
 foreach($lihat as $pelkes){
   $data=$pelkes->id_pelayanan_kesehatan;
 ?>
-        ['<?php echo $pelkes->id_pelayanan_kesehatan ?>','title',<?php echo $pelkes->lat ?>,<?php echo $pelkes->lon ?>,'<?php echo $pelkes->nama_kabupaten?>','<?php echo $pelkes->nama_jenis_pelayanan?>','<?php echo site_url();?>assets/image/<?php echo $pelkes->icon ?>'],
+        ['<?php echo $pelkes->id_pelayanan_kesehatan ?>','title',<?php echo $pelkes->lat ?>,<?php echo $pelkes->lon ?>,'<?php echo $pelkes->nama_kabupaten?>','<?php echo $pelkes->nama_jenis_pelayanan?>','<?php echo site_url();?>uploads/<?php echo $pelkes->icon ?>'],
 <?php }?>
 
   ];
@@ -116,10 +218,10 @@ var data=<?php echo $data;?>
  */
 
 function initialize() {
-  var center = new google.maps.LatLng(4.2952462,96.9974882);
+  var center = new google.maps.LatLng(5.1190853,96.259718);
   var mapOptions = {
-    zoom: 5,
-    center: new google.maps.LatLng(4.2952462,96.9974882),
+    zoom: 8,
+    center: new google.maps.LatLng(5.1190853,96.259718),
     mapTypeId: 'roadmap',
   };
 
@@ -241,7 +343,7 @@ var selectAllChecked = function() {
   for (var i = 0; i < allCheckedElem.length; i++) {
     if (allCheckedElem[i].checked == true) {
       checkedPlace.push(allCheckedElem[i].value)//creating array of checked items
-      
+
     }
   }
   filterChecker(checkedPlace) //passing to function for updating markers

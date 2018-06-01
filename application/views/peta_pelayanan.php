@@ -55,7 +55,7 @@
             <div class="widget-content">
               <div class="padding-1 padding-top-1">
 
-                <iframe  src="<?php echo site_url(); ?>/peta" width="100%" height="750px" scrolling="no" frameborder="0"></iframe>
+                <iframe  src="<?php echo site_url(); ?>/peta" width="100%" height="500px" scrolling="no" frameborder="0"></iframe>
 
               </div>
             </div>

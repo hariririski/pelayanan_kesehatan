@@ -56,7 +56,7 @@
               <div class="padding-1 padding-top-1">
 
                 <!-- <iframe  src="<?php echo site_url(); ?>/peta" width="100%" height="750px" scrolling="no" frameborder="0"></iframe> -->
-                <iframe  src="<?php echo site_url(); ?>/home/slider" width="100%" height="750px" scrolling="no" frameborder="0"></iframe>
+                <iframe  src="<?php echo site_url(); ?>/home/slider" width="100%" height="230px" scrolling="no" frameborder="0"></iframe>
 
               </div>
             </div>
@@ -93,7 +93,7 @@
               <div class="padding-20 padding-top-10">
                 <div class="clearfix">
                 <div class="grey-800 pull-center font-size-30 padding-vertical-10">
-                  <center>Total Klinik</center>
+                  <center>Total Puskesmas</center>
                   </div>
                     <span class=" pull-right grey-700 font-size-30">
                         <img  width="40%"src="<?php echo site_url(); ?>assets/image/klinik.png">

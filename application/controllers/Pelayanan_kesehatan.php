@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
        function proses_tambah_pelayanan_kesehatan(){
         $config['upload_path']   = './uploads/';
-        $config['allowed_types'] = 'jpg|png';
+        $config['allowed_types'] = 'jpg|png|JPG|PNG|jpeg|JPEG';
         $config['max_size']      = 99999999;
         $new_name=$this->random_name(10);
         $config['file_name']=$new_name;

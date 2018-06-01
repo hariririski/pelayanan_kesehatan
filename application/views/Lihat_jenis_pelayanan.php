@@ -68,11 +68,29 @@
                 <h4 class="example-title">Jenis Pelayanan</h4>
 
                 <div class="example">
-                  <form class="form-horizontal" action="jenis_pelayanan/proses_tambah_jenis_pelayanan" method="post">
+                  <form class="form-horizontal" action="jenis_pelayanan/proses_tambah_jenis_pelayanan" method="post" enctype="multipart/form-data">
                     <div class="form-group form-material">
                       <label class="col-sm-4 control-label">Nama Jenis Pelayanan</label>
                       <div class="col-sm-8">
                         <input type="text" class="form-control" name="nama_jenis_pelayanan" required placeholder="Nama Jenis Pelayanan" autocomplete="off" required>
+                      </div>
+                    </div>
+                    <div class="form-group  ">
+                      <div class="form-material ">
+                        <label class="col-lg-4 col-sm-4 control-label ">Icon
+                          <span class="required">*</span>
+                        </label>
+                      </div>
+                      <div class=" col-lg-8 col-sm-8">
+                        <div class="input-group input-group-file">
+                            <input type="file" name="icon" class="form-control" multiple="">
+                          <span class="input-group-btn">
+                            <span class="btn btn-primary btn-file waves-effect waves-light waves-effect waves-light">
+                              <i class="icon md-upload" aria-hidden="true"></i>
+
+                            </span>
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div class="form-group form-material">
@@ -100,6 +118,7 @@
               <tr>
                 <th>No</th>
                 <th>Jenis Pelayanan</th>
+                <th>icon</th>
                 <th>Edit</th>
                 <th>Hapus</th>
               </tr>
@@ -108,6 +127,7 @@
               <tr>
                 <th>No</th>
                 <th>Jenis Pelayanan</th>
+                <th>icon</th>
                 <th>Edit</th>
                 <th>Hapus</th>
               </tr>
@@ -121,6 +141,7 @@
                 <tr>
                   <td><?php echo $i; ?></td>
                   <td><?php echo $data_jenis_pelayanan->nama_jenis_pelayanan; ?></td>
+                  <td><?php echo $data_jenis_pelayanan->icon; ?></td>
                   <?php
                   echo"<td class='center' width='10%'><a href='". site_url()."ubah_kabupaten?id=$data_jenis_pelayanan->id_jenis_pelayanan' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                     \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
