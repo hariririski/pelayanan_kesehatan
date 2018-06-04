@@ -110,7 +110,7 @@
           $admin=$this->session->userdata('admin');
            if(empty($admin)==0){
           ?>
-          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="jalan"||$link =="jalan_rusak"){ echo "active";} ?>">
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="pelayanan_kesehatan"||$link =="pelayanan_kesehatan/tambah"){ echo "active";} ?>">
             <a href="javascript:void(0)" data-dropdown-toggle="false">
               <i class="site-menu-icon md-view-list-alt" aria-hidden="true"></i>
               <span class="site-menu-title">Pelayanan Kesehatan</span>
@@ -118,13 +118,13 @@
             </a>
             <ul class="site-menu-sub">
 
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="jalan"){ echo "active";} ?>">
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="pelayanan_kesehatan"){ echo "active";} ?>">
                 <a class="animsition-link" href="<?php echo site_url(); ?>pelayanan_kesehatan">
                   <span class="site-menu-title">Data Pelayanan Kesehatan</span>
                 </a>
               </li>
 
-              <li class="site-menu-item <?php $link=uri_string(); if($link =="jalan_rusak"){ echo "active";} ?>">
+              <li class="site-menu-item <?php $link=uri_string(); if($link =="pelayanan_kesehatan/tambah"){ echo "active";} ?>">
                 <a class="animsition-link" href="<?php echo site_url(); ?>pelayanan_kesehatan/tambah">
                   <span class="site-menu-title">Tambah Pelayanan Kesehatan</span>
                 </a>
@@ -135,7 +135,7 @@
           </li>
           <?php } ?>
 
-          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="peta"){ echo "active";} ?>">
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="home/peta"){ echo "active";} ?>">
             <a href="<?php echo site_url(); ?>home/peta"  data-dropdown-toggle="false">
               <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
               <span class="site-menu-title">Peta Pelayanan Kesehatan</span>
