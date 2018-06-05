@@ -64,12 +64,12 @@
 
                <div class="example-wrap">
                  <div class="row">
-                   <div class="col-xs-12 col-sm-10 col-lg-2">
+                   <div class="col-lg-10">
 
                        <div id="map-canvas"></div>
 
                    </div>
-                   <div class="col-xs-12 col-sm-2 col-lg-2">
+                   <div class="col-lg-2">
 
 
                      <div class="example">
@@ -96,8 +96,18 @@
                           <label for='shower'><?php //echo $jenis->nama_jenis_pelayanan?></label> -->
                           <div class="form-group form-material">
                             <div class="checkbox-custom checkbox-default">
-                              <input type="checkbox"   name="filter" value="<?php echo $jenis->nama_jenis_pelayanan?>" checked="" autocomplete="off" onclick="selectAllChecked();">
-                              <label for="inputBasicRemember"><?php echo $jenis->nama_jenis_pelayanan?></label>
+                              <table width="100%">
+                                <tr>
+                                  <td width="55px">
+                                      <img src="<?php echo site_url();?>uploads/<?php echo $jenis->icon ?>">
+                                  </td>
+                                  <td>
+                                    <input type="checkbox"name="filter" value="<?php echo $jenis->nama_jenis_pelayanan?>" checked="" autocomplete="off" onclick="selectAllChecked();">
+                                    <label for="inputBasicRemember"><?php echo $jenis->nama_jenis_pelayanan?></label>
+                                  </td>
+                                </tr>
+                              </table>
+
                             </div>
                           </div>
                           <?php
@@ -141,34 +151,6 @@
 
          </div>
        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -253,7 +235,7 @@ function addMarker(marker) {
   });
 
   gmarkers1.push(marker1);
-  var content = '<iframe src="<?php echo site_url(); ?>popup?id='+marker+'" width="100%"  scrolling="no" frameborder="0"></iframe>';
+  var content = '<iframe src="<?php echo site_url(); ?>popup?id='+marker+'" width="400px%" height="400px" scrolling="no" frameborder="0"></iframe>';
   // Marker click listener
   var infowindow = new google.maps.InfoWindow({
    content: content,

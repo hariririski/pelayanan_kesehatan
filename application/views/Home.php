@@ -96,7 +96,7 @@
                   <center>Total Puskesmas</center>
                   </div>
                     <span class=" pull-right grey-700 font-size-30">
-                        <img  width="40%"src="<?php echo site_url(); ?>assets/image/klinik.png">
+                        <img  width="40%"src="<?php echo site_url(); ?>assets/image/puskesmas.png">
                         55
                     </span>
                 </div>
@@ -118,7 +118,7 @@
                     <center>Total Apotek</center>
                     </div>
                   <span class=" pull-right grey-700 font-size-30">
-                    <img  width="40%"src="<?php echo site_url(); ?>assets/image/apotek.png">
+                    <img  width="40%"src="<?php echo site_url(); ?>assets/image/apotek1.png">
                     55
                   </span>
                 </div>

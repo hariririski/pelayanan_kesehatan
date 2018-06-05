@@ -45,30 +45,37 @@
 <body class="site-navbar-small dashboard">
 
   <?php echo $this->load->view('common/menu', '', TRUE);?>
+  <br>
+  <iframe  src="<?php echo site_url(); ?>/peta" width="100%" height="600px" scrolling="no" frameborder="0"></iframe>
 
-  <div class="page animsition">
+  <!-- <div class="page animsition">
+    <br>
+    <br>
+  <iframe  src="<?php echo site_url(); ?>/peta" width="100%" height="600px" scrolling="no" frameborder="0"></iframe>
+
     <div class="page-content container-fluid">
       <div class="row" data-plugin="matchHeight" data-by-row="true">
         <div class="col-lg-12 col-sm-12">
-          <!-- Widget Linearea One-->
+
           <div class="widget widget-shadow" id="widgetLineareaOne">
             <div class="widget-content">
               <div class="padding-1 padding-top-1">
 
-                <iframe  src="<?php echo site_url(); ?>/peta" width="100%" height="500px" scrolling="no" frameborder="0"></iframe>
+                 <iframe  src="<?php echo site_url(); ?>/peta" width="100%" height="600px" scrolling="no" frameborder="0"></iframe>
 
               </div>
             </div>
           </div>
-          <!-- End Widget Linearea One -->
+
         </div>
 
 
       </div>
     </div>
-  </div>
-  <!-- End Page -->
-  <!-- Footer -->
+  </div> -->
+
+
+
     <?php echo $this->load->view('common/footer', '', TRUE);?>
   <!-- Core  -->
   <script src="<?php echo site_url(); ?>assets/global/vendor/jquery/jquery.js"></script>
