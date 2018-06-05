@@ -74,7 +74,11 @@
                   </div>
                     <span class=" pull-right grey-700 font-size-30">
                       <img  width="50%"src="<?php echo site_url(); ?>assets/image/rs.png">
-                      75
+                      <?php
+                         foreach($jumlah_rs as $jumlah_rs){
+                           echo $jumlah_rs->jumlah;
+                         }
+                       ?>
                     </span>
                 </div>
                 <div class="margin-bottom-20 grey-500">
@@ -97,7 +101,11 @@
                   </div>
                     <span class=" pull-right grey-700 font-size-30">
                         <img  width="40%"src="<?php echo site_url(); ?>assets/image/puskesmas.png">
-                        55
+                        <?php
+                           foreach($jumlah_puskesmas as $jumlah_puskesmas){
+                             echo $jumlah_puskesmas->jumlah;
+                           }
+                         ?>
                     </span>
                 </div>
 
@@ -119,7 +127,11 @@
                     </div>
                   <span class=" pull-right grey-700 font-size-30">
                     <img  width="40%"src="<?php echo site_url(); ?>assets/image/apotek1.png">
-                    55
+                    <?php
+                       foreach($jumlah_apotek as $jumlah_apotek){
+                         echo $jumlah_apotek->jumlah;
+                       }
+                     ?>
                   </span>
                 </div>
 

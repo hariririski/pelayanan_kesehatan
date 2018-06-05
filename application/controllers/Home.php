@@ -9,14 +9,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $this->load->model('M_Pelayanan_kesehatan');
          $this->load->model('M_Jenis_pelayanan');
          $this->load->model('M_Kabupaten');
+         $this->load->model('M_Home');
   			 $this->load->database();
   			 }
 
 
          public function index()
        	{
-
-       		$this->load->view('Home');
+          $data['jumlah_rs'] = $this->M_Home->jumlah_rs();
+          $data['jumlah_puskesmas'] = $this->M_Home->jumlah_puskesmas();
+          $data['jumlah_apotek'] = $this->M_Home->jumlah_apotek();
+       		$this->load->view('Home',$data);
        	}
          public function slider()
        	{
