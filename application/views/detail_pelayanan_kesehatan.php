@@ -307,6 +307,7 @@
 
                           <?php
                              $i=0;
+                             $id=$_GET['id'];
                              foreach($layanan_kesehatan as $layanan_kesehatan){
                              $i++;
                            ?>
@@ -315,12 +316,12 @@
                               <td><?php echo $layanan_kesehatan->nama_layanan; ?></td>
 
                               <?php
-                              echo"<td class='center' width='10%'><a href='". site_url()."layanan_kesehatan/ubah_layanan_kesehatan?id=$layanan_kesehatan->id_layanan' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui ?')
+                              echo"<td class='center' width='10%'><a href='". site_url()."pelayanan_kesehatan/ubah_layanan_kesehatan?id=$layanan_kesehatan->id_layanan&&id1=$id' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui ?')
                                 \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
                                 </td>";
                               ?>
                               <?php
-                              echo"<td class='center' width='10%'><a href='". site_url()."layanan_kesehatan/hapus_layanan_kesehatan?id=$layanan_kesehatan->id_layanan' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                              echo"<td class='center' width='10%'><a href='". site_url()."pelayanan_kesehatan/hapus_layanan_kesehatan?id=$layanan_kesehatan->id_layanan&&id1=$id' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                                 \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                                 </td>";
                               ?>
@@ -389,12 +390,12 @@
                             <td><?php echo $data_poli->nama_poli; ?></td>
 
                             <?php
-                            echo"<td class='center' width='10%'><a href='". site_url()."ubah_kabupaten?id=$data_poli->id_pelkes_poli' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                            echo"<td class='center' width='10%'><a href='". site_url()."poli/ubah_poli_pelkes?id=$data_poli->id_pelkes_poli&&id1=$id' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui?')
                               \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
                               </td>";
                             ?>
                             <?php
-                            echo"<td class='center' width='10%'><a href='". site_url()."Kabupaten/proses_hapus_kabupaten?id=$data_poli->id_pelkes_poli' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                            echo"<td class='center' width='10%'><a href='". site_url()."poli/hapus_poli_pelkes?id=$data_poli->id_pelkes_poli&&id1=$id' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                               \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                               </td>";
                             ?>

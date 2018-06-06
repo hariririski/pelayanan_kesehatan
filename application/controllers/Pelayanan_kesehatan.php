@@ -118,6 +118,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                redirect("pelayanan_kesehatan");
              }
          }
+         public function hapus_layanan_kesehatan(){
+             $id=$_GET ['id'];
+             $id1=$_GET ['id1'];
+             $cek= $this->M_Pelayanan_kesehatan->hapus_layanan($id);
+             if($cek){
+               $this->tambah_berhasil();
+               redirect( site_url().'pelayanan_kesehatan/detail_pelayanan_kesehatan?id='.$id1);
+             }else{
+               $this->tambah_gagal();
+                redirect( site_url().'pelayanan_kesehatan/detail_pelayanan_kesehatan?id='.$id1);
+             }
+         }
 
 
 

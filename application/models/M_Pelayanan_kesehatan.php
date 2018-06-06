@@ -61,6 +61,13 @@ class M_Pelayanan_kesehatan extends CI_Model{
         $query=$this->db->query("DELETE from pelkes_poli where id_pelayanan_kesehatan='$id'");
         return $query;
     }
+    function hapus_layanan($id)
+    {
+
+      $query=$this->db->where('id_layanan', $id);
+      $cek=$this->db->delete('layanan_kesehatan');
+      return $cek;
+    }
 
     function edit_jalan($id,$document)
     {

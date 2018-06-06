@@ -54,6 +54,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               redirect('poli');
             }
         }
+        public function hapus_poli_pelkes(){
+          	$id=$_GET ['id'];
+          	$id1=$_GET ['id1'];
+          	$cek= $this->M_Poli->hapus_poli_pelkes($id);
+            if($cek){
+              $this->hapus_berhasil();
+               redirect( site_url().'pelayanan_kesehatan/detail_pelayanan_kesehatan?id='.$id1);
+            }else{
+              $this->hapus_gagal();
+              redirect( site_url().'pelayanan_kesehatan/detail_pelayanan_kesehatan?id='.$id1);
+            }
+        }
 
         public function proses_ubah_kabupaten($id){
           $cek= $this->M_Kabupaten->ubah_kabupaten($id);

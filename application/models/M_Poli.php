@@ -50,4 +50,10 @@ class M_Poli extends CI_Model{
       $cek=$this->db->delete('poli');
       return $cek;
     }
+    function hapus_poli_pelkes($id)
+    {
+      $query=$this->db->where('id_pelkes_poli', $id);
+      $cek=$this->db->delete('pelkes_poli');
+      return $cek;
+    }
 }
