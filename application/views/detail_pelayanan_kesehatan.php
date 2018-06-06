@@ -265,7 +265,7 @@
                 <div class="form-group form-material col-lg-12 text-right padding-top-m">
                   <?php echo"
                   <center>
-                  <a href='". site_url()."edit_pelayanan_kesehatan?id=$data_pelayanan_kesehatan->id_pelayanan_kesehatan' onclick=\"return confirm('Apakah Anda Yakin Untuk Mengubah Data Jalan ?')
+                  <a href='". site_url()."pelayanan_kesehatan/edit_pelayanan_kesehatan?id=$data_pelayanan_kesehatan->id_pelayanan_kesehatan' onclick=\"return confirm('Apakah Anda Yakin Untuk Mengubah Data ?')
                       \" title='Hapus'><button type='button' class='btn btn-warning'>Perubahan Data</button></a>
                   <center>
                     ";?>
@@ -356,6 +356,7 @@
 
                   </div>
                 </div>
+
                 <div class="col-lg-6 form-horizontal">
                   <h3 align="center">Poli</h3>
                   <div class="">
@@ -390,7 +391,7 @@
                             <td><?php echo $data_poli->nama_poli; ?></td>
 
                             <?php
-                            echo"<td class='center' width='10%'><a href='". site_url()."poli/ubah_poli_pelkes?id=$data_poli->id_pelkes_poli&&id1=$id' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui?')
+                            echo"<td class='center' width='10%'><a href='". site_url()."pelayanan_kesehatan/ubah_poli_pelkes?id=$data_poli->id_pelkes_poli&&id1=$id' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui?')
                               \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
                               </td>";
                             ?>

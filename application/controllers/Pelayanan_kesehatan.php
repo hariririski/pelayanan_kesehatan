@@ -72,6 +72,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $data['jenis_pelayanan'] = $this->M_Jenis_pelayanan->lihat_jenis_pelayanan();
          $this->load->view('Tambah_pelayanan_kesehatan',$data);
        }
+        public function edit_pelayanan_kesehatan()
+       {
+         $id=$_GET['id'];
+         $data['kabupaten'] = $this->M_Kabupaten->lihat_kabupaten();
+         $data['kecamatan'] = $this->M_Kecamatan->lihat_kecamatan();
+         $data['jenis_pelayanan'] = $this->M_Jenis_pelayanan->lihat_jenis_pelayanan();
+         $data['lihat'] = $this->M_Pelayanan_kesehatan->pelayanan_kesehatan($id);
+         $this->load->view('Edit_pelayanan_kesehatan',$data);
+       }
+        public function ubah_layanan_kesehatan()
+       {
+         $id=$_GET['id'];
+         $id1=$_GET['id1'];
+        
+         $data['layanan_kesehatan'] = $this->M_Pelayanan_kesehatan->layanan_kesehatan($id1);
+         $this->load->view('Edit_layanan_kesehatan',$data);
+       }
+        public function ubah_poli_pelkes()
+       {
+         $id=$_GET['id'];
+         $id1=$_GET['id1'];
+         $data['poli'] = $this->M_Poli->poli($id1);
+         $data['poli2'] = $this->M_Poli->lihat_poli();
+
+         $this->load->view('Edit_poli_pelkes',$data);
+       }
 
 
        function proses_tambah_pelayanan_kesehatan(){
