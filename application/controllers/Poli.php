@@ -20,6 +20,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $data['lihat'] = $this->M_Poli->lihat_poli();
        		$this->load->view('lihat_poli',$data);
        	}
+         public function ubah_poli()
+       	{
+          $data['lihat'] = $this->M_Poli->lihat_poli();
+       		$this->load->view('edit_poli',$data);
+       	}
 
         public function proses_tambah_poli(){
           $cek= $this->M_Poli->tambah_poli();
