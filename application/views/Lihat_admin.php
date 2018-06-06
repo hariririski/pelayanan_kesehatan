@@ -45,13 +45,14 @@
   </script>
 </head>
 <body class="site-navbar-small " >
-<?php echo $this->session->flashdata('pesan')?>
+
 
 <?php echo $this->load->view('common/menu', '', TRUE);?>
 
 
   <div class="page animsition">
     <div class="page-header">
+      <?php echo $this->session->flashdata('pesan')?>
       <h1 class="page-title">Administrator</h1>
 
 
