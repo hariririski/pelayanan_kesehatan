@@ -31,10 +31,10 @@ class M_Layer extends CI_Model{
     }
 
 
-    function proses_hapus_kabupaten($id)
+    function hapus_layer($id)
     {
-      $query=$this->db->where('id_kabupaten', $id);
-      $cek=$this->db->delete('Kabupaten');
+      $query=$this->db->where('id_layer', $id);
+      $cek=$this->db->delete('layer');
       return $cek;
     }
 }

@@ -96,21 +96,28 @@ $("#kabupaten").change(function(){
                 <h4 class="example-title">Desa</h4>
 
                 <div class="example">
-                  <form class="form-horizontal" action="desa/proses_tambah_desa" method="post">
+                  <?php
+                    foreach($lihat as $desa){
+
+                   ?>
+                  <form class="form-horizontal" action="<?php echo base_url(); ?>desa/proses_ubah_desa?id=<?php echo $desa->id_desa; ?>" method="post">
                     <div class="form-group form-material ">
                       <label class="col-lg-4 col-sm-4 control-label">Kabupaten
                         <span class="required">*</span>
                       </label>
                       <div class="col-lg-8 col-sm-8">
                         <select id="kabupaten" class="form-control select2-hidden-accessible" name="id_kabupaten" data-plugin="select2" data-placeholder="Pilih Kabupaten" data-allow-clear="true" tabindex="-1" aria-hidden="true">
-                            <option value="">Pilih</option>
+                            <option value="<?php echo $desa->id_kabupaten; ?>"><?php echo $desa->nama_kabupaten; ?></option>
                           <?php
                              $i=0;
                              foreach($kabupaten as $kabupaten){
-                             $i++;
+                               if($desa->id_kabupaten!=$kabupaten->id_kabupaten){
                            ?>
                           <option value="<?php echo $kabupaten->id_kabupaten; ?>"><?php echo $kabupaten->nama_kabupaten; ?></option>
-                          <?php } ?>
+                          <?php
+                              }
+                            }
+                           ?>
                         </select>
                       <small class="help-block" data-fv-validator="notEmpty" data-fv-for="company" data-fv-result="INVALID" style="">Pilih Kabupaten</small></div>
                     </div>
@@ -121,7 +128,7 @@ $("#kabupaten").change(function(){
                       <div class="col-lg-8 col-sm-8">
 
                           <select id="kecamatan" class="form-control select2-hidden-accessible" name="id_kecamatan" data-plugin="select2" data-placeholder="Pilih Kecamatan" data-allow-clear="true" tabindex="-1" aria-hidden="true">
-                            <option value="">Pilih</option>
+                          <option value="<?php echo $desa->id_kecamatan; ?>"><?php echo $desa->nama_kecamatan; ?></option>
 
                           </select>
                       <small class="help-block" data-fv-validator="notEmpty" data-fv-for="company" data-fv-result="INVALID" style="">Plilh Kecataman</small></div>
@@ -129,7 +136,7 @@ $("#kabupaten").change(function(){
                     <div class="form-group form-material">
                       <label class="col-sm-4 control-label">Nama Desa</label>
                       <div class="col-sm-8">
-                        <input type="text" class="form-control" name="nama_desa" required placeholder="Nama Desa" autocomplete="off" required>
+                        <input type="text" class="form-control" name="nama_desa" value="<?php echo $desa->nama_desa; ?>" required placeholder="Nama Desa" autocomplete="off" required>
                       </div>
                     </div>
                     <div class="form-group form-material">
@@ -139,6 +146,9 @@ $("#kabupaten").change(function(){
                       </div>
                     </div>
                   </form>
+                  <?php
+                }
+                   ?>
                 </div>
               </div>
               <!-- End Example Horizontal Form -->
@@ -146,63 +156,7 @@ $("#kabupaten").change(function(){
           </div>
         </div>
       </div>
-      <div class="panel">
-        <header class="panel-heading">
-          <div class="panel-actions"></div>
-          <h3 class="panel-title">Data Kabupeten/Kota</h3>
-        </header>
-        <div class="panel-body">
-          <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama Kabupaten/Kota</th>
-                <th>Nama Kecamatan</th>
-                <th>Nama Desa</th>
-                <th>Edit</th>
-                <th>Hapus</th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-                <th>Nama Kabupaten/Kota</th>
-                <th>Nama Kecamatan</th>
-                <th>Nama Desa</th>
-                <th>Edit</th>
-                <th>Hapus</th>
-              </tr>
-            </tfoot>
-            <tbody>
-              <?php
-                 $i=0;
-                 foreach($lihat as $data_desa){
-                 $i++;
-               ?>
-                <tr>
-                  <td><?php echo $i; ?></td>
-                  <td><?php echo $data_desa->nama_kabupaten; ?></td>
-                  <td><?php echo $data_desa->nama_kecamatan; ?></td>
-                  <td><?php echo $data_desa->nama_desa; ?></td>
-                  <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."desa/ubah_desa?id=$data_desa->id_desa' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui ?')
-                    \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
-                    </td>";
-                  ?>
-                  <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."desa/proses_hapus_desa?id=$data_desa->id_desa' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
-                    \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
-                    </td>";
-                  ?>
-                </tr>
-              <?php
-               }
-               ?>
 
-            </tbody>
-          </table>
-        </div>
-      </div>
 
     </div>
   </div>

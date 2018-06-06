@@ -16,7 +16,7 @@
    <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/datatables-bootstrap/dataTables.bootstrap.css">
    <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/datatables-fixedheader/dataTables.fixedHeader.css">
    <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/datatables-responsive/dataTables.responsive.css">
-   
+
    <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/animsition/animsition.css">
    <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/asscrollable/asScrollable.css">
    <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/switchery/switchery.css">
@@ -56,13 +56,14 @@
   </script>
 </head>
 <body class="site-navbar-small ">
-<?php echo $this->session->flashdata('pesan')?>
+
 
 <?php echo $this->load->view('common/menu', '', TRUE);?>
 
 
   <div class="page animsition">
     <div class="page-header">
+      <?php echo $this->session->flashdata('pesan')?>
       <h1 class="page-title">Kabupaten</h1>
 
 
@@ -153,7 +154,7 @@
                   <td><?php echo $data_kecamatan->nama_kabupaten; ?></td>
                   <td><?php echo $data_kecamatan->nama_kecamatan; ?></td>
                   <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."ubah_kecamatan?id=$data_kecamatan->id_kecamatan' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."ubah_kecamatan?id=$data_kecamatan->id_kecamatan' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui ?')
                     \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
                     </td>";
                   ?>

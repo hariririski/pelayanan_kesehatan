@@ -143,12 +143,12 @@
                   <td><?php echo $data_jenis_pelayanan->nama_jenis_pelayanan; ?></td>
                   <td><?php echo $data_jenis_pelayanan->icon; ?></td>
                   <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."ubah_kabupaten?id=$data_jenis_pelayanan->id_jenis_pelayanan' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."jenis_pelayanan/ubah_jenis_pelayanan?id=$data_jenis_pelayanan->id_jenis_pelayanan' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui ?')
                     \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
                     </td>";
                   ?>
                   <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."Kabupaten/proses_hapus_kabupaten?id=$data_jenis_pelayanan->id_jenis_pelayanan' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."jenis_pelayanan/hapus_jenis_pelayanan?id=$data_jenis_pelayanan->id_jenis_pelayanan' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                     \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                     </td>";
                   ?>

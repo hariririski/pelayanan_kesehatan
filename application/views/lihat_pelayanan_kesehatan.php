@@ -45,13 +45,15 @@
   </script>
 </head>
 <body class="site-navbar-small ">
-<?php echo $this->session->flashdata('pesan')?>
+
 
 <?php echo $this->load->view('common/menu', '', TRUE);?>
 
 
   <div class="page animsition">
+
     <div class="page-header">
+      <?php echo $this->session->flashdata('pesan')?>
       <h1 class="page-title">Data Pelayanan Kesehatan</h1>
 
     </div>
@@ -108,15 +110,16 @@
                   <button type='button' class='btn btn-success'>Detail</button></a>
                     </td>";
                   ?>
-                  
-                  <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."pelayanan_kesehatan/detail_pelayanan_kesehatan?id=".$pelayanan_kesehatan->id_pelayanan_kesehatan."'>
-                  <img src='".site_url()."assets/image/hapus.ico' class='btn ' width='60%'' type='button' </a>
-                  </td>";
-                  ?>
 
-                </tr>
+
+                  <td class='center' width='10%'>
+                    <a onclick="return confirm('Apakah anda yakin ingin menghapus ini ?')" href='<?php echo site_url(); ?>pelayanan_kesehatan/hapus_pelayanan_kesehatan?id=<?php echo $pelayanan_kesehatan->id_pelayanan_kesehatan; ?>'>
+                    <img src='<?php echo site_url(); ?>assets/image/hapus.ico' class='btn ' width='60%' >
+                    </a>
+                  </td>
+
               <?php
+              echo "</tr>";
                }
                ?>
 

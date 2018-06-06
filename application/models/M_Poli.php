@@ -44,10 +44,10 @@ class M_Poli extends CI_Model{
     }
 
 
-    function proses_hapus_kabupaten($id)
+    function hapus_poli($id)
     {
-      $query=$this->db->where('id_kabupaten', $id);
-      $cek=$this->db->delete('Kabupaten');
+      $query=$this->db->where('id_poli', $id);
+      $cek=$this->db->delete('poli');
       return $cek;
     }
 }

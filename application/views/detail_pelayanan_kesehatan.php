@@ -47,9 +47,8 @@
   <script src="<?php echo site_url(); ?>assets/global/vendor/modernizr/modernizr.js"></script>
   <script src="<?php echo site_url(); ?>assets/global/vendor/breakpoints/breakpoints.js"></script>
     <link rel="stylesheet" href="<?php echo site_url(); ?>assets/global/vendor/toastr/toastr.css">
+
   <script>
-  Breakpoints();
-  </script>
   Breakpoints();
   </script>
   <style type="text/css">
@@ -68,7 +67,7 @@
 
 </head>
 <body class="site-navbar-small ">
-<?php echo $this->session->flashdata('pesan')?>
+
 
 <?php echo $this->load->view('common/menu', '', TRUE);?>
 
@@ -77,6 +76,7 @@
  ?>
   <div class="page animsition">
     <div class="page-header">
+      <?php echo $this->session->flashdata('pesan')?>
       <h1 class="page-title"><?php echo $data_pelayanan_kesehatan->nama_pelayanan_kesehatan?></h1>
 
 
@@ -315,12 +315,12 @@
                               <td><?php echo $layanan_kesehatan->nama_layanan; ?></td>
 
                               <?php
-                              echo"<td class='center' width='10%'><a href='". site_url()."ubah_kabupaten?id=$layanan_kesehatan->id_layanan' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                              echo"<td class='center' width='10%'><a href='". site_url()."layanan_kesehatan/ubah_layanan_kesehatan?id=$layanan_kesehatan->id_layanan' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui ?')
                                 \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
                                 </td>";
                               ?>
                               <?php
-                              echo"<td class='center' width='10%'><a href='". site_url()."Kabupaten/proses_hapus_kabupaten?id=$layanan_kesehatan->id_layanan' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                              echo"<td class='center' width='10%'><a href='". site_url()."layanan_kesehatan/hapus_layanan_kesehatan?id=$layanan_kesehatan->id_layanan' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
                                 \" title='Hapus'><button type='button' class='btn btn-danger'>Hapus</button></a>
                                 </td>";
                               ?>

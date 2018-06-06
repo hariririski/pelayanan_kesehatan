@@ -107,57 +107,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					 return $password;
 				 }
 
-      function proses_edit_jalan($document_lama){
-        $kode_ruas=$this->input->post('kode_ruas');
-        $document_baru=$_FILES["document"] ['name'];
-
-        if(!empty($document_baru)){
-
-         $config['upload_path']   = './uploads/';
-         $config['allowed_types'] = 'pdf|rar|zip|docx|doc|xlsx|xls';
-         $config['max_size']      = 99999999;
-         //$config['max_width']     = 10240;
-         //$config['max_height']    = 7680;
-         $new_name ="JALAN".time().$_FILES["document"] ['name'];
-         $new_name=str_replace(" ","_",$new_name);
-         $config['file_name']=$new_name;
-         $this->load->library('upload', $config);
-
-         if ( ! $this->upload->do_upload('document')) {
-
-                 $this->upload();
-                 $this->tambah_gagal();
-                 redirect('detail_jalan?id='.$kode_ruas);
-         }else {
-               $link= FCPATH."uploads/".$document_lama;
-               unlink($link);
-               $cek=$this->M_Jalan->edit_jalan($kode_ruas,$new_name);
+         public function hapus_pelayanan_kesehatan(){
+             $id=$_GET ['id'];
+             $cek= $this->M_Pelayanan_kesehatan->hapus($id);
+             if($cek){
+               $this->tambah_berhasil();
+               redirect('pelayanan_kesehatan');
+             }else{
+               $this->tambah_gagal();
+               redirect("pelayanan_kesehatan");
+             }
          }
 
-       }else {
-         $cek=$this->M_Jalan->edit_jalan($kode_ruas,$document_lama);
-       }
 
-       if($cek){
-         $this->edit_berhasil();
-         redirect('detail_jalan?id='.$kode_ruas);
-       }else{
-         $this->edit_gagal();
-         redirect('detail_jalan?id='.$kode_ruas);
-       }
-     }
-
-      public function proses_hapus_jalan(){
-          $id=$_GET ['id'];
-          $cek= $this->M_Jalan->proses_hapus_jalan($id);
-          if($cek){
-            $this->tambah_berhasil();
-            redirect('jalan');
-          }else{
-            $this->tambah_gagal();
-            redirect("jalan");
-          }
-      }
 
       public function detail_pelayanan_kesehatan()
      {

@@ -36,36 +36,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }
         }
 
-        public function proses_hapus_kecamatan(){
+        public function proses_hapus_desa(){
           	$id=$_GET ['id'];
-          	$cek= $this->M_Kecamatan->proses_hapus_kecamatan($id);
+          	$cek= $this->M_Desa->proses_hapus_desa($id);
             if($cek){
               $this->hapus_berhasil();
-              redirect('kecamatan');
+              redirect('desa');
             }else{
               $this->hapus_gagal();
-              redirect('kecamatan');
+              redirect('desa');
+            }
+        }
+        public function proses_ubah_desa(){
+          	$id=$_GET ['id'];
+          	$cek= $this->M_Desa->proses_ubah_desa($id);
+            if($cek){
+              $this->hapus_berhasil();
+              redirect('desa');
+            }else{
+              $this->hapus_gagal();
+              redirect('desa');
             }
         }
 
-        public function ubah_kecamatan()
+        public function ubah_desa()
        {
          $id=$_GET['id'];
-         $data['select'] = $this->M_Kabupaten->lihat_kabupaten();
-         $data['lihat'] = $this->M_Kecamatan->kecamatan($id);
-         $this->load->view('edit_kecamatan',$data);
+         $data['kabupaten'] = $this->M_Kabupaten->lihat_kabupaten();
+         $data['kecamatan'] = $this->M_Kecamatan->lihat_kecamatan();
+         $data['lihat'] = $this->M_Desa->lihat($id);
+         $this->load->view('edit_desa',$data);
        }
 
-       public function proses_ubah_kecamatan($id){
-         $cek= $this->M_Kecamatan->ubah_kecamatan($id);
-         if($cek){
-           $this->edit_berhasil();
-           redirect('kecamatan');
-         }else{
-           $this->edit_gagal();
-           redirect('kecamatan');
-         }
-       }
 
 
        function tambah_berhasil(){

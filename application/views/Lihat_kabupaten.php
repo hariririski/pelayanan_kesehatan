@@ -45,12 +45,13 @@
   </script>
 </head>
 <body class="site-navbar-small " >
-  <?php echo $this->session->flashdata('pesan')?>
+
 <?php echo $this->load->view('common/menu', '', TRUE);?>
 
 
   <div class="page animsition">
     <div class="page-header">
+      <?php echo $this->session->flashdata('pesan')?>
       <h1 class="page-title">Kabupaten</h1>
 
 
@@ -121,7 +122,7 @@
                   <td><?php echo $i; ?></td>
                   <td><?php echo $data_kabupaten->nama_kabupaten; ?></td>
                   <?php
-                  echo"<td class='center' width='10%'><a href='". site_url()."ubah_kabupaten?id=$data_kabupaten->id_kabupaten' onclick=\"return confirm('Apakah Anda Yakin Menghapus ?')
+                  echo"<td class='center' width='10%'><a href='". site_url()."ubah_kabupaten?id=$data_kabupaten->id_kabupaten' onclick=\"return confirm('Apakah Anda Yakin Memperbaharui ?')
                     \" title='Hapus'><button type='button' class='btn btn-warning'>Edit</button></a>
                     </td>";
                   ?>

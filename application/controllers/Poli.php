@@ -43,15 +43,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }
         }
 
-        public function proses_hapus_kabupaten(){
+        public function hapus_poli(){
           	$id=$_GET ['id'];
-          	$cek= $this->M_Kabupaten->proses_hapus_kabupaten($id);
+          	$cek= $this->M_Poli->hapus_poli($id);
             if($cek){
               $this->hapus_berhasil();
-              redirect('kabupaten');
+              redirect('poli');
             }else{
               $this->hapus_gagal();
-              redirect('kabupaten');
+              redirect('poli');
             }
         }
 

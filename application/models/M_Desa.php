@@ -5,6 +5,11 @@ class M_Desa extends CI_Model{
         $query=$this->db->query("SELECT * FROM `desa` left join kecamatan on kecamatan.id_kecamatan=desa.id_kecamatan left join kabupaten on kabupaten.id_kabupaten=kecamatan.id_kabupaten");
         return $query->result();
     }
+    function lihat($id)
+    {
+        $query=$this->db->query("SELECT * FROM `desa` left join kecamatan on kecamatan.id_kecamatan=desa.id_kecamatan left join kabupaten on kabupaten.id_kabupaten=kecamatan.id_kabupaten where desa.id_desa='$id'");
+        return $query->result();
+    }
 
     function desa_kec($id)
     {
@@ -25,11 +30,14 @@ class M_Desa extends CI_Model{
       return $cek;
     }
 
-    function ubah_desa($id)
+    function proses_ubah_desa($id)
     {
       $nama_desa = $this->input->post('nama_desa');
+      $id_kecamatan = $this->input->post('id_kecamatan');
+
       $data = array(
-          'nama_desa'=>$nama_desa
+          'nama_desa'=>$nama_desa,
+          'id_kecamatan'=>$id_kecamatan
       );
       $this->db->where('id_desa',$id);
       $cek=$this->db->update('desa',$data);
@@ -45,7 +53,7 @@ class M_Desa extends CI_Model{
     function proses_hapus_desa($id)
     {
       $query=$this->db->where('id_desa', $id);
-      $cek=$this->db->delete('Kabupaten');
+      $cek=$this->db->delete('desa');
       return $cek;
     }
 }

@@ -53,6 +53,15 @@ class M_Pelayanan_kesehatan extends CI_Model{
       return $cek;
     }
 
+    function hapus($id)
+    {
+
+        $query=$this->db->query("DELETE from pelayanan_kesehatan where id_pelayanan_kesehatan='$id'");
+        $query=$this->db->query("DELETE from layanan_kesehatan where id_pelayanan_kesehatan='$id'");
+        $query=$this->db->query("DELETE from pelkes_poli where id_pelayanan_kesehatan='$id'");
+        return $query;
+    }
+
     function edit_jalan($id,$document)
     {
       $jalan = array(
@@ -84,12 +93,7 @@ class M_Pelayanan_kesehatan extends CI_Model{
       return $cek1;
     }
 
-    function proses_hapus_jalan($id)
-    {
 
-        $query=$this->db->query("DELETE jalan.*, fungsi.* from jalan, fungsi WHERE jalan.kode_ruas='$id' and fungsi.kode_ruas='$id'");
-        return $query;
-    }
 
 
 }

@@ -69,7 +69,7 @@
 
   <div class="page animsition">
     <div class="page-header">
-      <h1 class="page-title">Kabupaten</h1>
+      <h1 class="page-title">Kecamatan</h1>
 
 
     </div>
@@ -82,7 +82,7 @@
             <div class="col-sm-6 col-md-6">
               <!-- Example Horizontal Form -->
               <div class="example-wrap">
-                <h4 class="example-title">Kabupaten</h4>
+                <h4 class="example-title">Kecamatan</h4>
 
                 <div class="example">
                   <?php

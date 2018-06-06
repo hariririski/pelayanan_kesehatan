@@ -30,10 +30,10 @@ class M_Jenis_pelayanan extends CI_Model{
     }
 
 
-    function proses_hapus_kabupaten($id)
+    function hapus_jenis_pelayanan($id)
     {
-      $query=$this->db->where('id_kabupaten', $id);
-      $cek=$this->db->delete('Kabupaten');
+      $query=$this->db->where('id_jenis_pelayanan', $id);
+      $cek=$this->db->delete('jenis_pelayanan');
       return $cek;
     }
 }

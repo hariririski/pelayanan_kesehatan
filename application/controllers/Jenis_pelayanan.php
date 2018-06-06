@@ -21,16 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        		$this->load->view('lihat_jenis_pelayanan',$data);
        	}
 
-        // public function proses_tambah_jenis_pelayanan(){
-        //   $cek= $this->M_Jenis_pelayanan->tambah_jenis_pelayanan();
-        //   if($cek){
-        //     $this->tambah_berhasil();
-        //     redirect('jenis_pelayanan');
-        //   }else{
-        //     $this->tambah_gagal();
-        //     redirect('jenis_pelayanan');
-        //   }
-        // }
+
 
         function proses_tambah_jenis_pelayanan(){
          $config['upload_path']   = './uploads/';
@@ -45,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          if ( ! $this->upload->do_upload('icon')) {
                  $this->upload();
                  $this->tambah_gagal();
-              //  redirect('jenis_pelayanan');
+              redirect('jenis_pelayanan');
          }else {
                $cek=$this->M_Jenis_pelayanan->tambah_jenis_pelayanan($new_name);
                if($cek){
@@ -63,15 +54,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  					 return $password;
  				 }
 
-        public function proses_hapus_kabupaten(){
+        public function hapus_jenis_pelayanan(){
           	$id=$_GET ['id'];
-          	$cek= $this->M_Kabupaten->proses_hapus_kabupaten($id);
+          	$cek= $this->M_Jenis_pelayanan->hapus_jenis_pelayanan($id);
             if($cek){
               $this->hapus_berhasil();
-              redirect('kabupaten');
+              redirect('jenis_pelayanan');
             }else{
               $this->hapus_gagal();
-              redirect('kabupaten');
+              redirect('jenis_pelayanan');
             }
         }
 
