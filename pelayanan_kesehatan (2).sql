@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2018 at 07:02 AM
+-- Generation Time: Jun 07, 2018 at 05:57 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -187,8 +187,8 @@ CREATE TABLE `layer` (
 --
 
 INSERT INTO `layer` (`nama_layer`, `url`, `id_layer`) VALUES
-('Batas Kecamatan', 'https://github.com/hariririski/sumur_bor_ci/raw/master/layer/p11_kabupaten_a_15102012_Lay.kmz', 1),
-('Batas Kecamatan Aceh Besar', 'https://github.com/hariririski/sumur_bor_ci/raw/master/layer/p11_kabupaten_a_15102012_Lay.kmz', 2);
+('Batas Kecataman Banda Aceh', 'https://github.com/hariririski/pelayanan_kesehatan/raw/master/data_layer/Kecamatan_Banda_Aceh.kmz', 3),
+('Batas Kecamatan Aceh Besar', 'https://github.com/hariririski/pelayanan_kesehatan/raw/master/data_layer/Kecamatan%20Aceh%20Besar.kmz', 4);
 
 -- --------------------------------------------------------
 
@@ -256,8 +256,22 @@ CREATE TABLE `poli` (
 --
 
 INSERT INTO `poli` (`id_poli`, `nama_poli`) VALUES
-(1, 'Anak'),
-(2, 'Penyakit Dalam');
+(5, 'Anak'),
+(7, 'Bedah'),
+(11, 'Bedah Syaraf'),
+(16, 'Gigi'),
+(17, 'Gizi'),
+(14, 'Jantung'),
+(9, 'Jiwa'),
+(18, 'Kandungan'),
+(15, 'Kulit kelamin'),
+(8, 'Mata'),
+(13, 'Paru'),
+(6, 'Penyakit Dalam'),
+(10, 'Saraf'),
+(12, 'THT'),
+(4, 'Umum'),
+(19, 'VCT');
 
 --
 -- Indexes for dumped tables
@@ -338,12 +352,12 @@ ALTER TABLE `desa`
 -- AUTO_INCREMENT for table `jenis_pelayanan`
 --
 ALTER TABLE `jenis_pelayanan`
-  MODIFY `id_jenis_pelayanan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_jenis_pelayanan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `kabupaten`
 --
 ALTER TABLE `kabupaten`
-  MODIFY `id_kabupaten` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_kabupaten` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `kecamatan`
 --
@@ -358,7 +372,7 @@ ALTER TABLE `layanan_kesehatan`
 -- AUTO_INCREMENT for table `layer`
 --
 ALTER TABLE `layer`
-  MODIFY `id_layer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_layer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pelayanan_kesehatan`
 --
@@ -368,12 +382,12 @@ ALTER TABLE `pelayanan_kesehatan`
 -- AUTO_INCREMENT for table `pelkes_poli`
 --
 ALTER TABLE `pelkes_poli`
-  MODIFY `id_pelkes_poli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pelkes_poli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `poli`
 --
 ALTER TABLE `poli`
-  MODIFY `id_poli` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_poli` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
