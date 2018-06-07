@@ -68,7 +68,7 @@
                 <h4 class="example-title">Layer</h4>
 
                 <div class="example">
-                  <form class="form-horizontal" action="layer/proses_tambah_layer" method="post">
+                  <form class="form-horizontal" action="<?php echo site_url(); ?>layer/proses_tambah_layer" method="post">
                     <div class="form-group form-material">
                       <label class="col-sm-4 control-label">Nama Layer</label>
                       <div class="col-sm-8">

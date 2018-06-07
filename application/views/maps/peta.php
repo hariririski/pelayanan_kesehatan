@@ -200,10 +200,10 @@ var data=<?php echo $data;?>
  */
 
 function initialize() {
-  var center = new google.maps.LatLng(5.1190853,96.259718);
+  var center = new google.maps.LatLng(5.502885, 95.322202);
   var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(5.1190853,96.259718),
+    zoom: 10,
+    center: new google.maps.LatLng(5.502885, 95.322202),
     mapTypeId: 'roadmap',
   };
 
