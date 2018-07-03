@@ -201,7 +201,7 @@ $("#kecamatan").change(function(){
                         <span class="required">*</span>
                       </label>
                       <div class=" col-lg-9 col-sm-9">
-                        <input type="email" class="form-control" name="email" placeholder="Email" required="" >
+                        <input type="text" class="form-control" name="email" placeholder="Email" required="" >
                       </div>
                     </div>
                     <div class="form-group form-material ">

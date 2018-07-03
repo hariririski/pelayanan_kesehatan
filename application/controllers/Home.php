@@ -40,7 +40,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        }
         public function peta()
        {
-         $this->load->view('peta_pelayanan.php');
+         $this->load->view('peta_pelayanan');
+       }
+        public function persebaran()
+       {
+         $this->load->view('persebaran');
+       }
+        public function grafik()
+       {
+         $this->load->view('grafik_kab');
+       }
+        public function data_grafik()
+       {
+
+          $data['lihat'] = $this->M_Home->data_grafik();
+
+        	$this->load->view('data/data',$data);
        }
 
 

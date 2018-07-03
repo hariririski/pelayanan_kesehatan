@@ -24,6 +24,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $data['kabupaten'] = $this->M_Kabupaten->Lihat_kabupaten();
        	$this->load->view('maps/peta',$data);
       }
+      public function persebaran(){
+        $data['lihat'] = $this->M_Pelayanan_kesehatan->lihat_pelayanan_kesehatan();
+        $data['layer'] = $this->M_Layer->lihat_layer();
+        $data['jenis'] = $this->M_Jenis_pelayanan->lihat_jenis_pelayanan();
+        $data['kabupaten'] = $this->M_Kabupaten->Lihat_kabupaten();
+       	$this->load->view('maps/persebaran',$data);
+      }
 
       public function popup(){
         $id=$_GET['id'];

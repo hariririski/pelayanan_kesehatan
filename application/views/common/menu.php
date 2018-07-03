@@ -143,8 +143,8 @@
             </a>
 
           </li>
-          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="persebaran"){ echo "active";} ?>">
-            <a href="<?php echo site_url(); ?>home"  data-dropdown-toggle="false">
+          <li class="site-menu-item has-sub <?php $link=uri_string(); if($link =="home/persebaran"){ echo "active";} ?>">
+            <a href="<?php echo site_url(); ?>home/persebaran"  data-dropdown-toggle="false">
               <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
               <span class="site-menu-title">Persebaran Pelayanan Kesehatan</span>
               <span class="site-menu-arrow"></span>
