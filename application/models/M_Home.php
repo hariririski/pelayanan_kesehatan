@@ -19,7 +19,7 @@ class M_Home extends CI_Model{
     }
     function data_grafik()
     {
-        $query=$this->db->query("SELECT kabupaten.nama_kabupaten,COUNT(kabupaten.id_kabupaten) as jumlah FROM pelayanan_kesehatan INNER JOIN kabupaten on kabupaten.id_kabupaten=pelayanan_kesehatan.id_kabupaten");
+        $query=$this->db->query("SELECT kabupaten.nama_kabupaten, COUNT(kabupaten.id_kabupaten) as jumlah FROM pelayanan_kesehatan INNER JOIN kabupaten on kabupaten.id_kabupaten=pelayanan_kesehatan.id_kabupaten GROUP BY kabupaten.id_kabupaten");
         return $query->result();
     }
 
