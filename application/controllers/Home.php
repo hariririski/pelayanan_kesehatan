@@ -57,6 +57,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         	$this->load->view('data/data',$data);
        }
+        public function grafik_pelkes()
+       {
+         $this->load->view('grafik_pelkes');
+       }
+        public function data_grafik_pelkes()
+       {
+          $id=$_GET['id'];
+          $data['lihat'] = $this->M_Home->data_grafik_pelkes($id);
+
+        	$this->load->view('data/data_pelkes',$data);
+       }
+        public function grafik_kec()
+       {
+         $this->load->view('grafik_kec');
+       }
+        public function data_grafik_kec()
+       {
+          $id=$_GET['id'];
+          $data['lihat'] = $this->M_Home->data_grafik_kec($id);
+
+        	$this->load->view('data/data_kec',$data);
+       }
 
 
    }

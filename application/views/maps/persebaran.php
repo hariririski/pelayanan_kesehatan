@@ -65,7 +65,7 @@
            <div class="row row-lg">
              <div class="col-lg-12">
                <select id="type"  class="form-control" onchange="filterMarkers(this.value);">
-                 <option value="">Semua</option>
+                 <option value="0">Semua</option>
                  <?php
                       foreach($kabupaten as $kabupaten){
 
@@ -283,19 +283,28 @@ function addMarker(marker) {
  */
 
 filterMarkers = function(category) {
+  var x = document.getElementById("type").value;
+  if(x==0){
+    document.getElementById("demo").innerHTML=""+
+    "<div class='col-lg-12'>"+
+    "<iframe  src='<?php echo site_url(); ?>/home/grafik' width='100%' height='600px' scrolling='no' frameborder='0'></iframe>"+
+    "</div>";
+  }else{
+  document.getElementById("demo").innerHTML=""+
+  "<div class='col-lg-6'>"+
+  "<iframe  src='<?php echo site_url(); ?>/home/grafik_pelkes?id="+x+"' width='100%' height='600px' scrolling='no' frameborder='0'></iframe>"+
+  "</div>"+
+  "<div class='col-lg-6'>"+
+  "<iframe  src='<?php echo site_url(); ?>/home/grafik_kec?id="+x+"' width='100%' height='600px' scrolling='no' frameborder='0'></iframe>"+
+  "</div>";
+  }
+
   for (i = 0; i < markers1.length; i++) {
     marker = gmarkers1[i];
     // If is same category or category not picked
     if (marker.category == category || category.length === 0) {
       marker.setVisible(true);
-      var x = document.getElementById("type").value;
-      document.getElementById("demo").innerHTML=""+
-      "<div class='col-lg-6'>"+
-      "<iframe  src='<?php echo site_url(); ?>/peta/persebaran' width='100%' height='600px' scrolling='no' frameborder='0'></iframe>"+
-      "</div>"+
-      "<div class='col-lg-6'>"+
-      "<iframe  src='<?php echo site_url(); ?>/peta/persebaran' width='100%' height='600px' scrolling='no' frameborder='0'></iframe>"+
-      "</div>" + x;
+
     }
     // Categories don't match
     else {
