@@ -64,7 +64,7 @@
   <div class="page animsition">
     <div class="page-header">
       <?php echo $this->session->flashdata('pesan')?>
-      <h1 class="page-title">Kabupaten</h1>
+      <h1 class="page-title">Kecamatan</h1>
 
 
     </div>
@@ -77,7 +77,7 @@
             <div class="col-sm-6 col-md-6">
               <!-- Example Horizontal Form -->
               <div class="example-wrap">
-                <h4 class="example-title">Kabupaten</h4>
+                <h4 class="example-title">Kecamatan</h4>
 
                 <div class="example">
                   <form class="form-horizontal" action="kecamatan/proses_tambah_kecamatan" method="post">
@@ -121,7 +121,7 @@
       <div class="panel">
         <header class="panel-heading">
           <div class="panel-actions"></div>
-          <h3 class="panel-title">Data Kabupeten/Kota</h3>
+          <h3 class="panel-title">Data Kecamatan</h3>
         </header>
         <div class="panel-body">
           <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
