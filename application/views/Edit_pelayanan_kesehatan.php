@@ -102,7 +102,10 @@ $("#kecamatan").change(function(){
 
           <div class="panel-body">
             <form   action="proses_tambah_pelayanan_kesehatan" method="post" enctype="multipart/form-data" class="fv-form fv-form-bootstrap">
+              <?php
+                 foreach($lihat as $edit){
 
+               ?>
               <div class="row row-lg">
                 <div class="col-lg-6 form-horizontal">
 
@@ -111,7 +114,7 @@ $("#kecamatan").change(function(){
                       <span class="required">*</span>
                     </label>
                     <div class=" col-lg-9 col-sm-9">
-                      <input type="text" class="form-control focus" name="nama_pelayanan_kesehatan" placeholder="Nama Pelayanan Kesehatan" required=""  >
+                      <input value="<?php echo $edit->nama_pelayanan_kesehatan; ?>"type="text" class="form-control focus" name="nama_pelayanan_kesehatan" placeholder="Nama Pelayanan Kesehatan" required=""  >
 
                   </div>
                   </div>
@@ -121,14 +124,17 @@ $("#kecamatan").change(function(){
                     </label>
                     <div class=" col-lg-9 col-sm-9">
                       <select class="form-control select2-hidden-accessible" name="id_jenis_pelayanan" data-plugin="select2" data-placeholder="Pilih Jenis Pelayanan Kesehatan" data-allow-clear="true" tabindex="-1" aria-hidden="true">
-                          <option value="">Pilih</option>
+                          <option value="<?php echo $edit->id_jenis_pelayanan; ?>"><?php echo $edit->nama_jenis_pelayanan; ?></option>
                         <?php
                            $i=0;
                            foreach($jenis_pelayanan as $data_jenis_pelayanan){
                            $i++;
+                           if($data_jenis_pelayanan->id_jenis_pelayanan!= $edit->id_jenis_pelayanan){
                          ?>
                         <option value="<?php echo $data_jenis_pelayanan->id_jenis_pelayanan; ?>"><?php echo $data_jenis_pelayanan->nama_jenis_pelayanan; ?></option>
-                        <?php } ?>
+                        <?php }
+                              }
+                      ?>
                       </select>
                     </div>
                   </div>
@@ -137,7 +143,7 @@ $("#kecamatan").change(function(){
                       <span class="required">*</span>
                     </label>
                     <div class=" col-lg-9 col-sm-9">
-                    <input type="text" class="form-control" name="alamat" placeholder="Alamat" required="" >
+                    <input  value="<?php echo $edit->alamat; ?>"type="text" class="form-control" name="alamat" placeholder="Alamat" required="" >
                     </div>
                   </div>
                   <div class="form-group form-material ">
@@ -146,7 +152,7 @@ $("#kecamatan").change(function(){
                     </label>
                     <div class="col-lg-9 col-sm-9">
                       <select id="kabupaten" class="form-control select2-hidden-accessible" name="id_kabupaten" data-plugin="select2" data-placeholder="Pilih Kabupaten" data-allow-clear="true" tabindex="-1" aria-hidden="true">
-                          <option value="">Pilih</option>
+                          <option value="<?php echo $edit->nama_kabupaten; ?>"><?php echo $edit->nama_kabupaten; ?></option>
                         <?php
                            $i=0;
                            foreach($kabupaten as $kabupaten){
@@ -164,7 +170,7 @@ $("#kecamatan").change(function(){
                     <div class="col-lg-9 col-sm-9">
 
                         <select id="kecamatan" class="form-control select2-hidden-accessible" name="id_kecamatan" data-plugin="select2" data-placeholder="Pilih Kecamatan" data-allow-clear="true" tabindex="-1" aria-hidden="true">
-                          <option value="">Pilih</option>
+                            <option value="<?php echo $edit->nama_kecamatan; ?>"><?php echo $edit->nama_kecamatan; ?></option>
 
                         </select>
                     <small class="help-block" data-fv-validator="notEmpty" data-fv-for="company" data-fv-result="INVALID" style="">Plilh Kecataman</small></div>
@@ -176,7 +182,7 @@ $("#kecamatan").change(function(){
                     <div class="col-lg-9 col-sm-9">
 
                         <select id="desa" class="form-control select2-hidden-accessible" name="id_desa" data-plugin="select2" data-placeholder="Pilih desa" data-allow-clear="true" tabindex="-1" aria-hidden="true">
-                          <option value="">Pilih</option>
+                            <option value="<?php echo $edit->nama_desa; ?>"><?php echo $edit->nama_desa; ?></option>
 
                         </select>
                     <small class="help-block" data-fv-validator="notEmpty" data-fv-for="company" data-fv-result="INVALID" style="">Plilh Desa</small></div>
@@ -193,7 +199,7 @@ $("#kecamatan").change(function(){
                         <span class="required">*</span>
                       </label>
                       <div class=" col-lg-9 col-sm-9">
-                        <input type="text" class="form-control" name="no_tlp" placeholder="NO Telepon" required="" >
+                        <input  value="<?php echo $edit->no_tlp; ?>" type="text" class="form-control" name="no_tlp" placeholder="NO Telepon" required="" >
                       </div>
                     </div>
                     <div class="form-group form-material ">
@@ -201,7 +207,7 @@ $("#kecamatan").change(function(){
                         <span class="required">*</span>
                       </label>
                       <div class=" col-lg-9 col-sm-9">
-                        <input type="email" class="form-control" name="email" placeholder="Email" required="" >
+                        <input type="text"  value="<?php echo $edit->email; ?>" class="form-control" name="email" placeholder="Email" required="" >
                       </div>
                     </div>
                     <div class="form-group form-material ">
@@ -209,7 +215,7 @@ $("#kecamatan").change(function(){
                         <span class="required">*</span>
                       </label>
                       <div class=" col-lg-9 col-sm-9">
-                        <input type="text" class="form-control" name="lat" placeholder="Latitude / Lintang" required=""  >
+                        <input type="text"  value="<?php echo $edit->lat; ?>" class="form-control" name="lat" placeholder="Latitude / Lintang" required=""  >
 
                       </div>
                     </div>
@@ -218,7 +224,7 @@ $("#kecamatan").change(function(){
                         <span class="required">*</span>
                       </label>
                       <div class=" col-lg-9 col-sm-9">
-                        <input type="text" class="form-control" name="lon" placeholder="Longitude / Bujur" required="" >
+                        <input type="text"  value="<?php echo $edit->lon ?>" class="form-control" name="lon" placeholder="Longitude / Bujur" required="" >
                       </div>
                     </div>
                     <div class="form-group form-material ">
@@ -226,7 +232,7 @@ $("#kecamatan").change(function(){
                         <span class="required">*</span>
                       </label>
                       <div class=" col-lg-9 col-sm-9">
-                        <input type="text" class="form-control" name="web" placeholder="Url Halaman Web" required="" >
+                        <input  value="<?php echo $edit->web; ?>"type="text" class="form-control" name="web" placeholder="Url Halaman Web" required="" >
 
                     </div>
                     </div>
@@ -235,7 +241,7 @@ $("#kecamatan").change(function(){
                         <span class="required">*</span>
                       </label>
                       <div class=" col-lg-9 col-sm-9">
-                        <input type="text" class="form-control" name="status_akreditasi" placeholder="Akreditasi" required="" >
+                        <input  value="<?php echo $edit->status_akreditasi; ?>" type="text" class="form-control" name="status_akreditasi" placeholder="Akreditasi" required="" >
                       </div>
                     </div>
 
@@ -246,6 +252,7 @@ $("#kecamatan").change(function(){
                         </label>
                       </div>
                       <div class=" col-lg-9 col-sm-9">
+                        <img src="<?php echo site_url(); ?>uploads/<?php echo $edit->foto; ?>">
                         <div class="input-group input-group-file">
                             <input type="file" name="document" class="form-control" multiple="">
                           <span class="input-group-btn">
@@ -266,6 +273,7 @@ $("#kecamatan").change(function(){
                   <button type="submit" class="btn btn-primary waves-effect waves-light" >Submit</button>
                 </div>
               </div>
+            <?php }?>
             </form>
           </div>
         </div>
