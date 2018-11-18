@@ -45,7 +45,7 @@
       #map-canvas {
       margin: 0;
       padding: 0;
-      height: 300px;
+      height: 500px;
       max-width: none;
     }
     body {
@@ -77,13 +77,13 @@
                <br>
                <div class="example-wrap">
                  <div class="row">
-                   <div class="col-lg-8">
+                   <div class="col-lg-10">
 
                        <div id="map-canvas"></div>
 
                    </div>
-                   <div class="col-lg-4">
-                      <div class="col-lg-6">
+                   <div class="col-lg-2">
+
 
                     Icon
                      <div id="buttons">
@@ -116,7 +116,7 @@
                              ?>
 
                      </div>
-                     </div>
+
 
                      Layer
                      <table border='0'>
@@ -145,6 +145,7 @@
 
                      </table >
 
+                   
                    </div>
 
 
